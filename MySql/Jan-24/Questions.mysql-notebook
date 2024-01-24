@@ -1,0 +1,1684 @@
+{
+    "type": "MySQLNotebook",
+    "version": "1.0",
+    "caption": "DB Notebook",
+    "content": "\\about\nSHOW DATABASES;\nUSE DBML;\nCREATE TABLE salesmen (\n  salesman_id INT PRIMARY KEY,\n  name VARCHAR(255) NOT NULL,\n  city VARCHAR(255) NOT NULL,\n  commission DECIMAL(5,2) NOT NULL\n);\nINSERT INTO salesmen (salesman_id, name, city, commission)\nVALUES (5001, 'James Hoog', 'New York', 0.15),\n       (5002, 'Nail Knite', 'Paris', 0.13),\n       (5005, 'Pit Alex', 'London', 0.11),\n       (5006, 'Mc Lyon', 'Paris', 0.14),\n       (5007, 'Paul Adam', 'Rome', 0.13),\n       (5003, 'Lauson Hen', 'San Jose', 0.12);\nSELECT * FROM SALESMEN;\nSELECT \"This is SQL Exercise, Practice and Solution\" AS \"Write a SQL statement to display a string\";\nSELECT (10 + 15) AS \"SUM OF 10 & 15\";\nSELECT 1 AS ONE, 2 AS TWO, 3 AS THREE;\nSELECT (1+1) AS \"1+1\", (4-2) AS \"4-2\", (4/2) AS \"4/2\", (2*2) AS \"2*2\";\nCREATE TABLE customers (\n  customer_id INT PRIMARY KEY,\n  cust_name VARCHAR(255) NOT NULL,\n  city VARCHAR(255) NOT NULL,\n  grade INT,\n  salesman_id INT,\n  FOREIGN KEY (salesman_id) REFERENCES salesmen(salesman_id)\n);\nINSERT INTO customers (customer_id, cust_name, city, grade, salesman_id)\nVALUES (3002, 'Nick Rimando', 'New York', 100, 5001),\n       (3007, 'Brad Davis', 'New York', 200, 5001),\n       (3005, 'Graham Zusi', 'California', 200, 5002),\n       (3008, 'Julian Green', 'London', 300, 5002),\n       (3004, 'Fabian Johnson', 'Paris', 300, 5006),\n       (3009, 'Geoff Cameron', 'Berlin', 100, 5003),\n       (3003, 'Jozy Altidor', 'Moscow', 200, 5007),\n       (3001, 'Brad Guzan', 'London', NULL, 5005);\nCREATE TABLE orders (\n  ord_no INT PRIMARY KEY,\n  purch_amt DECIMAL(10,2) NOT NULL,\n  ord_date DATE NOT NULL,\n  customer_id INT NOT NULL,\n  salesman_id INT NOT NULL,\n  FOREIGN KEY (customer_id) REFERENCES customers(customer_id),\n  FOREIGN KEY (salesman_id) REFERENCES salesmen(salesman_id)\n);\nINSERT INTO orders (ord_no, purch_amt, ord_date, customer_id, salesman_id)\nVALUES (70001, 150.5, '2012-10-05', 3005, 5002),\n       (70009, 270.65, '2012-09-10', 3001, 5005),\n       (70002, 65.26, '2012-10-05', 3002, 5001),\n       (70004, 110.5, '2012-08-17', 3009, 5003),\n       (70007, 948.5, '2012-09-10', 3005, 5002),\n       (70005, 2400.6, '2012-07-27', 3007, 5001),\n       (70008, 5760, '2012-09-10', 3002, 5001),\n       (70010, 1983.43, '2012-10-10', 3004, 5006),\n       (70003, 2480.4, '2012-10-10', 3009, 5003),\n       (70012, 250.45, '2012-06-27', 3008, 5002),\n       (70011, 75.29, '2012-08-17', 3003, 5007),\n       (70013, 3045.6, '2012-04-25', 3002, 5001);\n\nSELECT NAME,commission FROM salesmen;\nSELECT ORD_DATE,SALESMAN_ID,ORD_NO,PURCH_AMT FROM ORDERS;\nSELECT DISTINCT(SALESMAN_ID) AS \"UNIQUE SALESMAN ID\" FROM ORDERS;\nselect name,city from salesmen where city='Paris';\nselect customer_id, cust_name, city, grade, salesman_id from CUSTOMERS where grade=200;\nselect ord_no, ord_date, purch_amt from ORDERS where salesman_id=5001;\nCREATE TABLE nobel_win (\n  YEAR INT NOT NULL,\n  SUBJECT VARCHAR(255) NOT NULL,\n  WINNER VARCHAR(255) NOT NULL,\n  COUNTRY VARCHAR(255) NOT NULL,\n  CATEGORY VARCHAR(255) NOT NULL\n);\nINSERT INTO nobel_win (YEAR, SUBJECT, WINNER, COUNTRY, CATEGORY)\nVALUES (1970, 'Physics', 'Hannes Alfven', 'Sweden', 'Scientist'),\n       (1970, 'Physics', 'Louis Neel', 'France', 'Scientist'),\n       (1970, 'Chemistry', 'Luis Federico Leloir', 'Argentina', 'Scientist'),\n       (1970, 'Physiology', 'Ulf von Euler', 'Sweden', 'Scientist'),\n       (1970, 'Physiology', 'Bernard Katz', 'Germany', 'Scientist'),\n       (1970, 'Literature', 'Aleksandr Solzhenitsyn', 'Russia', 'Linguist'),\n       (1970, 'Economics', 'Paul Samuelson', 'USA', 'Economist'),\n       (1970, 'Physiology', 'Julius Axelrod', 'USA', 'Scientist'),\n       (1971, 'Physics', 'Dennis Gabor', 'Hungary', 'Scientist'),\n       (1971, 'Chemistry', 'Gerhard Herzberg', 'Canada', 'Scientist'),\n       (1971, 'Peace', 'Willy Brandt', 'Germany', 'Chancellor'),\n       (1971, 'Literature', 'Pablo Neruda', 'Chile', 'Linguist'),\n       (1971, 'Economics', 'Simon Kuznets', 'Russia', 'Economist'),\n       (1978, 'Peace', 'Anwar al-Sadat', 'Egypt', 'President'),\n       (1978, 'Peace', 'Menachem Begin', 'Israel', 'Prime Minister'),\n       (1987, 'Chemistry', 'Donald J. Cram', 'USA', 'Scientist'),\n       (1987, 'Chemistry', 'Jean-Marie Lehn', 'France', 'Scientist'),\n       (1987, 'Physiology', 'Susumu Tonegawa', 'Japan', 'Scientist'),\n       (1994, 'Economics', 'Reinhard Selten', 'Germany', 'Economist'),\n       (1994, 'Peace', 'Yitzhak Rabin', 'Israel', 'Prime Minister'),\n       (1987, 'Physics', 'Johannes Georg Bednorz', 'Germany', 'Scientist'),\n       (1987, 'Literature', 'Joseph Brodsky', 'Russia', 'Linguist'),\n       (1987, 'Economics', 'Robert Solow', 'USA', 'Economist'),\n       (1994, 'Literature', 'Kenzaburo Oe', 'Japan', 'Novelist');\nSELECT SALESMAN_ID, name, city, commission FROM SALESMEN WHERE CITY = \"PARIS\" OR CITY = \"ROME\";\nSELECT SALESMAN_ID, name, city, commission FROM SALESMEN WHERE CITY != \"PARIS\" AND CITY != \"ROME\";\nSELECT customer_id, cust_name, city, grade, salesman_id FROM CUSTOMERS WHERE CUSTOMER_ID = 3007 OR CUSTOMER_ID = 3008 OR CUSTOMER_ID = 3009;\n",
+    "options": {
+        "tabSize": 4,
+        "indentSize": 4,
+        "insertSpaces": true,
+        "defaultEOL": "LF",
+        "trimAutoWhitespace": true
+    },
+    "viewState": {
+        "cursorState": [
+            {
+                "inSelectionMode": false,
+                "selectionStart": {
+                    "lineNumber": 95,
+                    "column": 14
+                },
+                "position": {
+                    "lineNumber": 95,
+                    "column": 14
+                }
+            }
+        ],
+        "viewState": {
+            "scrollLeft": 0,
+            "firstPosition": {
+                "lineNumber": 93,
+                "column": 1
+            },
+            "firstPositionDeltaTop": -17
+        },
+        "contributionsState": {
+            "editor.contrib.folding": {},
+            "editor.contrib.wordHighlighter": false
+        }
+    },
+    "contexts": [
+        {
+            "state": {
+                "start": 1,
+                "end": 1,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 2,
+                            "content": "Welcome to the MySQL Shell - DB Notebook.\n\nPress Cmd+Enter to execute the code block.\n\nExecute \\sql to switch to SQL, \\js to JavaScript and \\ts to TypeScript mode.\nExecute \\help or \\? for help;",
+                            "language": "ansi"
+                        }
+                    ]
+                },
+                "currentHeight": 104,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 6
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 2,
+                "end": 2,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "b432480a-5fcd-4f14-bf13-b76827324903"
+                    ]
+                },
+                "currentHeight": 36,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 15
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "aec73651-3e6c-40b8-9c2e-59ae74b7b7cf",
+                    "resultId": "b432480a-5fcd-4f14-bf13-b76827324903",
+                    "rows": [
+                        {
+                            "0": "DBML"
+                        },
+                        {
+                            "0": "information_schema"
+                        },
+                        {
+                            "0": "mysql"
+                        },
+                        {
+                            "0": "performance_schema"
+                        },
+                        {
+                            "0": "sys"
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "Database",
+                            "field": "0",
+                            "dataType": {
+                                "type": 17
+                            }
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 5 records retrieved in 1.237ms"
+                    },
+                    "totalRowCount": 5,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SHOW DATABASES"
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 3,
+                "end": 3,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 4,
+                            "index": 0,
+                            "resultId": "454c3619-1989-43c1-91e0-2dc549780eda",
+                            "content": "OK, 0 records retrieved in 1.336ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 9
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 4,
+                "end": 9,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 4,
+                            "index": 0,
+                            "resultId": "0c298de4-04a6-497a-d065-8fcdabe2e0aa",
+                            "content": "OK, 0 records retrieved in 33.819ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 152
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 152,
+                            "length": 0
+                        },
+                        "contentStart": 151,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 10,
+                "end": 16,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 4,
+                            "index": 0,
+                            "resultId": "3c4f5585-dc41-4bc7-9ceb-27091cd4314b",
+                            "content": "OK, 6 rows affected in 5.559ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 322
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 17,
+                "end": 17,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "896819d0-ce00-49b9-d48c-41543e5c9302"
+                    ]
+                },
+                "currentHeight": 190,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 23
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "aec73651-3e6c-40b8-9c2e-59ae74b7b7cf",
+                    "resultId": "896819d0-ce00-49b9-d48c-41543e5c9302",
+                    "rows": [
+                        {
+                            "0": 5001,
+                            "1": "James Hoog",
+                            "2": "New York",
+                            "3": "0.15"
+                        },
+                        {
+                            "0": 5002,
+                            "1": "Nail Knite",
+                            "2": "Paris",
+                            "3": "0.13"
+                        },
+                        {
+                            "0": 5003,
+                            "1": "Lauson Hen",
+                            "2": "San Jose",
+                            "3": "0.12"
+                        },
+                        {
+                            "0": 5005,
+                            "1": "Pit Alex",
+                            "2": "London",
+                            "3": "0.11"
+                        },
+                        {
+                            "0": 5006,
+                            "1": "Mc Lyon",
+                            "2": "Paris",
+                            "3": "0.14"
+                        },
+                        {
+                            "0": 5007,
+                            "1": "Paul Adam",
+                            "2": "Rome",
+                            "3": "0.13"
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "salesman_id",
+                            "field": "0",
+                            "dataType": {
+                                "type": 4
+                            }
+                        },
+                        {
+                            "title": "name",
+                            "field": "1",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "city",
+                            "field": "2",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "commission",
+                            "field": "3",
+                            "dataType": {
+                                "type": 10
+                            }
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 6 records retrieved in 0.793ms"
+                    },
+                    "totalRowCount": 6,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SELECT * FROM SALESMEN"
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 18,
+                "end": 18,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "26c268e5-8d8d-4e56-9e8b-ecec24777722"
+                    ]
+                },
+                "currentHeight": 36,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 100
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "aec73651-3e6c-40b8-9c2e-59ae74b7b7cf",
+                    "resultId": "26c268e5-8d8d-4e56-9e8b-ecec24777722",
+                    "rows": [
+                        {
+                            "0": "This is SQL Exercise, Practice and Solution"
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "Write a SQL statement to display a string",
+                            "field": "0",
+                            "dataType": {
+                                "type": 17
+                            }
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 1 record retrieved in 0.418ms"
+                    },
+                    "totalRowCount": 1,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SELECT \"This is SQL Exercise, Practice and Solution\" AS \"Write a SQL statement to display a string\""
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 19,
+                "end": 19,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "6b2f15c7-71be-4d2b-c522-cf161308ea26"
+                    ]
+                },
+                "currentHeight": 36,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 37
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "aec73651-3e6c-40b8-9c2e-59ae74b7b7cf",
+                    "resultId": "6b2f15c7-71be-4d2b-c522-cf161308ea26",
+                    "rows": [
+                        {
+                            "0": 25
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "SUM OF 10 & 15",
+                            "field": "0",
+                            "dataType": {
+                                "type": 1
+                            }
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 1 record retrieved in 0.631ms"
+                    },
+                    "totalRowCount": 1,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SELECT (10 + 15) AS \"SUM OF 10 & 15\""
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 20,
+                "end": 20,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "576d28ae-14b0-4bc6-affd-44e5b1cc9a07"
+                    ]
+                },
+                "currentHeight": 36,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 38
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "aec73651-3e6c-40b8-9c2e-59ae74b7b7cf",
+                    "resultId": "576d28ae-14b0-4bc6-affd-44e5b1cc9a07",
+                    "rows": [
+                        {
+                            "0": 1,
+                            "1": 2,
+                            "2": 3
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "ONE",
+                            "field": "0",
+                            "dataType": {
+                                "type": 4
+                            }
+                        },
+                        {
+                            "title": "TWO",
+                            "field": "1",
+                            "dataType": {
+                                "type": 4
+                            }
+                        },
+                        {
+                            "title": "THREE",
+                            "field": "2",
+                            "dataType": {
+                                "type": 4
+                            }
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 1 record retrieved in 0.603ms"
+                    },
+                    "totalRowCount": 1,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SELECT 1 AS ONE, 2 AS TWO, 3 AS THREE"
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 21,
+                "end": 21,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "711db424-8ef9-46be-abf6-09bed56f48e8"
+                    ]
+                },
+                "currentHeight": 36,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 70
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 70,
+                            "length": 0
+                        },
+                        "contentStart": 69,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "aec73651-3e6c-40b8-9c2e-59ae74b7b7cf",
+                    "resultId": "711db424-8ef9-46be-abf6-09bed56f48e8",
+                    "rows": [
+                        {
+                            "0": 2,
+                            "1": 2,
+                            "2": "2.0000",
+                            "3": 4
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "1+1",
+                            "field": "0",
+                            "dataType": {
+                                "type": 1
+                            }
+                        },
+                        {
+                            "title": "4-2",
+                            "field": "1",
+                            "dataType": {
+                                "type": 1
+                            }
+                        },
+                        {
+                            "title": "4/2",
+                            "field": "2",
+                            "dataType": {
+                                "type": 10
+                            }
+                        },
+                        {
+                            "title": "2*2",
+                            "field": "3",
+                            "dataType": {
+                                "type": 1
+                            }
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 1 record retrieved in 1.309ms"
+                    },
+                    "totalRowCount": 1,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SELECT (1+1) AS \"1+1\", (4-2) AS \"4-2\", (4/2) AS \"4/2\", (2*2) AS \"2*2\""
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 22,
+                "end": 29,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 4,
+                            "index": 0,
+                            "resultId": "b6610199-e9cd-41a9-d465-82ab1a4e3536",
+                            "content": "OK, 0 records retrieved in 10.445ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 216
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 30,
+                "end": 38,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 4,
+                            "index": 0,
+                            "resultId": "a2202614-783e-47cb-b4de-1bfca6223f82",
+                            "content": "OK, 8 rows affected in 2.161ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 494
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 494,
+                            "length": 0
+                        },
+                        "contentStart": 493,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 39,
+                "end": 47,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 4,
+                            "index": 0,
+                            "resultId": "2d6f1121-c602-409c-ccdb-d43e09c8cbda",
+                            "content": "OK, 0 records retrieved in 9.908ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 292
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 292,
+                            "length": 0
+                        },
+                        "contentStart": 291,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 48,
+                "end": 61,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 4,
+                            "index": 0,
+                            "resultId": "a6ae528a-ec80-42fd-f347-f4b3e25acd39",
+                            "content": "OK, 12 rows affected in 2.974ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 668
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 668,
+                            "length": 1
+                        },
+                        "contentStart": 667,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 62,
+                "end": 62,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "2cae6cec-72ee-4983-8b88-c90fd9c94ecf"
+                    ]
+                },
+                "currentHeight": 36,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 37
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "aec73651-3e6c-40b8-9c2e-59ae74b7b7cf",
+                    "resultId": "2cae6cec-72ee-4983-8b88-c90fd9c94ecf",
+                    "rows": [
+                        {
+                            "0": "James Hoog",
+                            "1": "0.15"
+                        },
+                        {
+                            "0": "Nail Knite",
+                            "1": "0.13"
+                        },
+                        {
+                            "0": "Lauson Hen",
+                            "1": "0.12"
+                        },
+                        {
+                            "0": "Pit Alex",
+                            "1": "0.11"
+                        },
+                        {
+                            "0": "Mc Lyon",
+                            "1": "0.14"
+                        },
+                        {
+                            "0": "Paul Adam",
+                            "1": "0.13"
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "NAME",
+                            "field": "0",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "commission",
+                            "field": "1",
+                            "dataType": {
+                                "type": 10
+                            }
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 6 records retrieved in 5.673ms"
+                    },
+                    "totalRowCount": 6,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SELECT NAME,commission FROM salesmen"
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 63,
+                "end": 63,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "f7a9f8e6-af28-4ddf-99b6-063bc3e70462"
+                    ]
+                },
+                "currentHeight": 316,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 57
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "aec73651-3e6c-40b8-9c2e-59ae74b7b7cf",
+                    "resultId": "f7a9f8e6-af28-4ddf-99b6-063bc3e70462",
+                    "rows": [
+                        {
+                            "0": "2012-10-05",
+                            "1": 5002,
+                            "2": 70001,
+                            "3": "150.50"
+                        },
+                        {
+                            "0": "2012-10-05",
+                            "1": 5001,
+                            "2": 70002,
+                            "3": "65.26"
+                        },
+                        {
+                            "0": "2012-10-10",
+                            "1": 5003,
+                            "2": 70003,
+                            "3": "2480.40"
+                        },
+                        {
+                            "0": "2012-08-17",
+                            "1": 5003,
+                            "2": 70004,
+                            "3": "110.50"
+                        },
+                        {
+                            "0": "2012-07-27",
+                            "1": 5001,
+                            "2": 70005,
+                            "3": "2400.60"
+                        },
+                        {
+                            "0": "2012-09-10",
+                            "1": 5002,
+                            "2": 70007,
+                            "3": "948.50"
+                        },
+                        {
+                            "0": "2012-09-10",
+                            "1": 5001,
+                            "2": 70008,
+                            "3": "5760.00"
+                        },
+                        {
+                            "0": "2012-09-10",
+                            "1": 5005,
+                            "2": 70009,
+                            "3": "270.65"
+                        },
+                        {
+                            "0": "2012-10-10",
+                            "1": 5006,
+                            "2": 70010,
+                            "3": "1983.43"
+                        },
+                        {
+                            "0": "2012-08-17",
+                            "1": 5007,
+                            "2": 70011,
+                            "3": "75.29"
+                        },
+                        {
+                            "0": "2012-06-27",
+                            "1": 5002,
+                            "2": 70012,
+                            "3": "250.45"
+                        },
+                        {
+                            "0": "2012-04-25",
+                            "1": 5001,
+                            "2": 70013,
+                            "3": "3045.60"
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "ORD_DATE",
+                            "field": "0",
+                            "dataType": {
+                                "type": 28
+                            }
+                        },
+                        {
+                            "title": "SALESMAN_ID",
+                            "field": "1",
+                            "dataType": {
+                                "type": 4
+                            }
+                        },
+                        {
+                            "title": "ORD_NO",
+                            "field": "2",
+                            "dataType": {
+                                "type": 4
+                            }
+                        },
+                        {
+                            "title": "PURCH_AMT",
+                            "field": "3",
+                            "dataType": {
+                                "type": 10
+                            }
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 12 records retrieved in 0.787ms"
+                    },
+                    "totalRowCount": 12,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SELECT ORD_DATE,SALESMAN_ID,ORD_NO,PURCH_AMT FROM ORDERS"
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 64,
+                "end": 64,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "f3f0e0ce-e863-4dd8-b65b-04d3e9d05570"
+                    ]
+                },
+                "currentHeight": 36,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 65
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "aec73651-3e6c-40b8-9c2e-59ae74b7b7cf",
+                    "resultId": "f3f0e0ce-e863-4dd8-b65b-04d3e9d05570",
+                    "rows": [
+                        {
+                            "0": 5001
+                        },
+                        {
+                            "0": 5002
+                        },
+                        {
+                            "0": 5003
+                        },
+                        {
+                            "0": 5005
+                        },
+                        {
+                            "0": 5006
+                        },
+                        {
+                            "0": 5007
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "UNIQUE SALESMAN ID",
+                            "field": "0",
+                            "dataType": {
+                                "type": 4
+                            }
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 6 records retrieved in 0.663ms"
+                    },
+                    "totalRowCount": 6,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SELECT DISTINCT(SALESMAN_ID) AS \"UNIQUE SALESMAN ID\" FROM ORDERS"
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 65,
+                "end": 65,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "3e723d17-86e2-448a-c7be-97454ae0e07b"
+                    ]
+                },
+                "currentHeight": 106.125,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 50
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "aec73651-3e6c-40b8-9c2e-59ae74b7b7cf",
+                    "resultId": "3e723d17-86e2-448a-c7be-97454ae0e07b",
+                    "rows": [
+                        {
+                            "0": "Nail Knite",
+                            "1": "Paris"
+                        },
+                        {
+                            "0": "Mc Lyon",
+                            "1": "Paris"
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "name",
+                            "field": "0",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "city",
+                            "field": "1",
+                            "dataType": {
+                                "type": 17
+                            }
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 2 records retrieved in 0.837ms"
+                    },
+                    "totalRowCount": 2,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "select name,city from salesmen where city='Paris'"
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 66,
+                "end": 66,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "8a43f7d0-57f3-461d-befc-bd01e6d09752"
+                    ]
+                },
+                "currentHeight": 36,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 87
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 87,
+                            "length": 0
+                        },
+                        "contentStart": 86,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "aec73651-3e6c-40b8-9c2e-59ae74b7b7cf",
+                    "resultId": "8a43f7d0-57f3-461d-befc-bd01e6d09752",
+                    "rows": [
+                        {
+                            "0": 3003,
+                            "1": "Jozy Altidor",
+                            "2": "Moscow",
+                            "3": 200,
+                            "4": 5007
+                        },
+                        {
+                            "0": 3005,
+                            "1": "Graham Zusi",
+                            "2": "California",
+                            "3": 200,
+                            "4": 5002
+                        },
+                        {
+                            "0": 3007,
+                            "1": "Brad Davis",
+                            "2": "New York",
+                            "3": 200,
+                            "4": 5001
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "customer_id",
+                            "field": "0",
+                            "dataType": {
+                                "type": 4
+                            }
+                        },
+                        {
+                            "title": "cust_name",
+                            "field": "1",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "city",
+                            "field": "2",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "grade",
+                            "field": "3",
+                            "dataType": {
+                                "type": 4
+                            }
+                        },
+                        {
+                            "title": "salesman_id",
+                            "field": "4",
+                            "dataType": {
+                                "type": 4
+                            }
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 3 records retrieved in 1.73ms"
+                    },
+                    "totalRowCount": 3,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "select customer_id, cust_name, city, grade, salesman_id from CUSTOMERS where grade=200"
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 67,
+                "end": 67,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "ca1d254d-a456-43eb-ff80-b785068f451d"
+                    ]
+                },
+                "currentHeight": 36,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 70
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 70,
+                            "length": 0
+                        },
+                        "contentStart": 69,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "aec73651-3e6c-40b8-9c2e-59ae74b7b7cf",
+                    "resultId": "ca1d254d-a456-43eb-ff80-b785068f451d",
+                    "rows": [
+                        {
+                            "0": 70002,
+                            "1": "2012-10-05",
+                            "2": "65.26"
+                        },
+                        {
+                            "0": 70005,
+                            "1": "2012-07-27",
+                            "2": "2400.60"
+                        },
+                        {
+                            "0": 70008,
+                            "1": "2012-09-10",
+                            "2": "5760.00"
+                        },
+                        {
+                            "0": 70013,
+                            "1": "2012-04-25",
+                            "2": "3045.60"
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "ord_no",
+                            "field": "0",
+                            "dataType": {
+                                "type": 4
+                            }
+                        },
+                        {
+                            "title": "ord_date",
+                            "field": "1",
+                            "dataType": {
+                                "type": 28
+                            }
+                        },
+                        {
+                            "title": "purch_amt",
+                            "field": "2",
+                            "dataType": {
+                                "type": 10
+                            }
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 4 records retrieved in 2.246ms"
+                    },
+                    "totalRowCount": 4,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "select ord_no, ord_date, purch_amt from ORDERS where salesman_id=5001"
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 68,
+                "end": 74,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 4,
+                            "index": 0,
+                            "resultId": "ccc79017-dc5e-4425-94b5-11e9ae9fc608",
+                            "content": "OK, 0 records retrieved in 6.434ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 179
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 75,
+                "end": 99,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 4,
+                            "index": 0,
+                            "resultId": "f9aaa4d5-1cfc-43ea-ead3-21dd38e7f731",
+                            "content": "OK, 24 rows affected in 5.556ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 1710
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 1710,
+                            "length": 0
+                        },
+                        "contentStart": 1709,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 100,
+                "end": 100,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "081a2f57-3f40-4168-d209-04701f63dcd1"
+                    ]
+                },
+                "currentHeight": 127,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 95
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "aec73651-3e6c-40b8-9c2e-59ae74b7b7cf",
+                    "resultId": "081a2f57-3f40-4168-d209-04701f63dcd1",
+                    "rows": [
+                        {
+                            "0": 5002,
+                            "1": "Nail Knite",
+                            "2": "Paris",
+                            "3": "0.13"
+                        },
+                        {
+                            "0": 5006,
+                            "1": "Mc Lyon",
+                            "2": "Paris",
+                            "3": "0.14"
+                        },
+                        {
+                            "0": 5007,
+                            "1": "Paul Adam",
+                            "2": "Rome",
+                            "3": "0.13"
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "SALESMAN_ID",
+                            "field": "0",
+                            "dataType": {
+                                "type": 4
+                            }
+                        },
+                        {
+                            "title": "name",
+                            "field": "1",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "city",
+                            "field": "2",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "commission",
+                            "field": "3",
+                            "dataType": {
+                                "type": 10
+                            }
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 3 records retrieved in 1.038ms"
+                    },
+                    "totalRowCount": 3,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SELECT SALESMAN_ID, name, city, commission FROM SALESMEN WHERE CITY = \"PARIS\" OR CITY = \"ROME\""
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 101,
+                "end": 101,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "938a5024-6b84-42cb-86d9-967d3d171241"
+                    ]
+                },
+                "currentHeight": 127,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 98
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "aec73651-3e6c-40b8-9c2e-59ae74b7b7cf",
+                    "resultId": "938a5024-6b84-42cb-86d9-967d3d171241",
+                    "rows": [
+                        {
+                            "0": 5001,
+                            "1": "James Hoog",
+                            "2": "New York",
+                            "3": "0.15"
+                        },
+                        {
+                            "0": 5003,
+                            "1": "Lauson Hen",
+                            "2": "San Jose",
+                            "3": "0.12"
+                        },
+                        {
+                            "0": 5005,
+                            "1": "Pit Alex",
+                            "2": "London",
+                            "3": "0.11"
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "SALESMAN_ID",
+                            "field": "0",
+                            "dataType": {
+                                "type": 4
+                            }
+                        },
+                        {
+                            "title": "name",
+                            "field": "1",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "city",
+                            "field": "2",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "commission",
+                            "field": "3",
+                            "dataType": {
+                                "type": 10
+                            }
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 3 records retrieved in 0.86ms"
+                    },
+                    "totalRowCount": 3,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SELECT SALESMAN_ID, name, city, commission FROM SALESMEN WHERE CITY != \"PARIS\" AND CITY != \"ROME\""
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 102,
+                "end": 102,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "58927832-0662-4603-e665-91ce038b03e2"
+                    ]
+                },
+                "currentHeight": 127,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 140
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "aec73651-3e6c-40b8-9c2e-59ae74b7b7cf",
+                    "resultId": "58927832-0662-4603-e665-91ce038b03e2",
+                    "rows": [
+                        {
+                            "0": 3007,
+                            "1": "Brad Davis",
+                            "2": "New York",
+                            "3": 200,
+                            "4": 5001
+                        },
+                        {
+                            "0": 3008,
+                            "1": "Julian Green",
+                            "2": "London",
+                            "3": 300,
+                            "4": 5002
+                        },
+                        {
+                            "0": 3009,
+                            "1": "Geoff Cameron",
+                            "2": "Berlin",
+                            "3": 100,
+                            "4": 5003
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "customer_id",
+                            "field": "0",
+                            "dataType": {
+                                "type": 4
+                            }
+                        },
+                        {
+                            "title": "cust_name",
+                            "field": "1",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "city",
+                            "field": "2",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "grade",
+                            "field": "3",
+                            "dataType": {
+                                "type": 4
+                            }
+                        },
+                        {
+                            "title": "salesman_id",
+                            "field": "4",
+                            "dataType": {
+                                "type": 4
+                            }
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 3 records retrieved in 1.36ms"
+                    },
+                    "totalRowCount": 3,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SELECT customer_id, cust_name, city, grade, salesman_id FROM CUSTOMERS WHERE CUSTOMER_ID = 3007 OR CUSTOMER_ID = 3008 OR CUSTOMER_ID = 3009"
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 103,
+                "end": 103,
+                "language": "mysql",
+                "currentHeight": 180,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 0
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        }
+    ]
+}
