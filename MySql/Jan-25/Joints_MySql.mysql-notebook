@@ -1,0 +1,2245 @@
+{
+    "type": "MySQLNotebook",
+    "version": "1.0",
+    "caption": "DB Notebook",
+    "content": "\\about\n-- Joints In MySql\nSHOW DATABASES;\nUSE DBML;\nSHOW TABLES;\nSELECT salesmen.name AS \"Salesman\",customers.cust_name, customers.city FROM salesmen\nINNER JOIN customers\nON salesmen.city = customers.city;\nSELECT orders.ord_no, orders.purch_amt, customers.cust_name, customers.city\nFROM orders,customers\nWHERE orders.customer_id=customers.customer_id AND orders.purch_amt BETWEEN 500 AND 2000;\n-- OR\nSELECT orders.ord_no, orders.purch_amt, customers.cust_name, customers.city\nFROM orders\nINNER JOIN customers\nON orders.customer_id=customers.customer_id AND orders.purch_amt BETWEEN 500 AND 2000;\nSELECT customers.cust_name, customers.city, salesmen.name as \"Salesman\", salesmen.commission\nFROM salesmen\nINNER JOIN customers\nON customers.city=salesmen.city;\nSELECT customers.cust_name, customers.city, salesmen.name as \"Salesman\", salesmen.commission\nFROM salesmen\nINNER JOIN customers\nON customers.city=salesmen.city AND salesmen.commission > 0.12;\nSELECT customers.cust_name, customers.city, salesmen.name as \"Salesman\", salesmen.commission\nFROM salesmen\nINNER JOIN customers\nON customers.city != salesmen.city AND salesmen.commission > 0.12;\nSHOW TABLES;\nSELECT orders.ord_no, orders.ord_date, orders.purch_amt, customers.cust_name, customers.grade, salesmen.name as \"salesman\",salesmen.commission\nFROM orders\nINNER JOIN customers, salesmen\nWHERE orders.salesman_id = customers.salesman_id AND customers.salesman_id=salesmen.salesman_id;\nSELECT orders.ord_no, orders.ord_date, orders.purch_amt, customers.cust_name, customers.grade, salesmen.name as \"salesman\",salesmen.commission\nFROM orders\nINNER JOIN customers\nON orders.salesman_id = customers.salesman_id \nINNER JOIN salesmen\nON customers.salesman_id=salesmen.salesman_id;\nSELECT *\nFROM orders\nINNER JOIN customers\nON orders.salesman_id = customers.salesman_id \nINNER JOIN salesmen\nON customers.salesman_id=salesmen.salesman_id;\nSELECT *\nFROM orders\nNATURAL JOIN customers\nNATURAL JOIN salesmen;\n",
+    "options": {
+        "tabSize": 4,
+        "indentSize": 4,
+        "insertSpaces": true,
+        "defaultEOL": "LF",
+        "trimAutoWhitespace": true
+    },
+    "viewState": {
+        "cursorState": [
+            {
+                "inSelectionMode": false,
+                "selectionStart": {
+                    "lineNumber": 50,
+                    "column": 1
+                },
+                "position": {
+                    "lineNumber": 50,
+                    "column": 1
+                }
+            }
+        ],
+        "viewState": {
+            "scrollLeft": 0,
+            "firstPosition": {
+                "lineNumber": 46,
+                "column": 1
+            },
+            "firstPositionDeltaTop": 339
+        },
+        "contributionsState": {
+            "editor.contrib.folding": {},
+            "editor.contrib.wordHighlighter": false
+        }
+    },
+    "contexts": [
+        {
+            "state": {
+                "start": 1,
+                "end": 1,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 2,
+                            "content": "Welcome to the MySQL Shell - DB Notebook.\n\nPress Cmd+Enter to execute the code block.\n\nExecute \\sql to switch to SQL, \\js to JavaScript and \\ts to TypeScript mode.\nExecute \\help or \\? for help;",
+                            "language": "ansi"
+                        }
+                    ]
+                },
+                "currentHeight": 120,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 6
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 2,
+                "end": 3,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "4143d835-cce5-4c59-ffc6-4e2608b878e1"
+                    ]
+                },
+                "currentHeight": 36,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 34
+                        },
+                        "contentStart": 19,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "45455dfc-a0ae-4e2f-b31e-86a21fbe9307",
+                    "resultId": "4143d835-cce5-4c59-ffc6-4e2608b878e1",
+                    "rows": [
+                        {
+                            "0": "DBML"
+                        },
+                        {
+                            "0": "information_schema"
+                        },
+                        {
+                            "0": "mysql"
+                        },
+                        {
+                            "0": "performance_schema"
+                        },
+                        {
+                            "0": "sys"
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "Database",
+                            "field": "0",
+                            "dataType": {
+                                "type": 17
+                            }
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 5 records retrieved in 1.568ms"
+                    },
+                    "totalRowCount": 5,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "-- Joints In MySql\nSHOW DATABASES"
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 4,
+                "end": 4,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 4,
+                            "index": 0,
+                            "resultId": "5110b36a-54b0-4de1-98e6-cde9cbea36a0",
+                            "content": "OK, 0 records retrieved in 1.158ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 9
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 5,
+                "end": 5,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "1a1308f2-5261-46b5-855d-5af74408d39c"
+                    ]
+                },
+                "currentHeight": 36,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 12
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 12,
+                            "length": 0
+                        },
+                        "contentStart": 11,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "45455dfc-a0ae-4e2f-b31e-86a21fbe9307",
+                    "resultId": "1a1308f2-5261-46b5-855d-5af74408d39c",
+                    "rows": [
+                        {
+                            "0": "customers"
+                        },
+                        {
+                            "0": "EMPLOYEE"
+                        },
+                        {
+                            "0": "nobel_win"
+                        },
+                        {
+                            "0": "orders"
+                        },
+                        {
+                            "0": "Persons"
+                        },
+                        {
+                            "0": "RAW_DATABASE"
+                        },
+                        {
+                            "0": "salesmen"
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "Tables_in_dbml",
+                            "field": "0",
+                            "dataType": {
+                                "type": 17
+                            }
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 7 records retrieved in 2.504ms"
+                    },
+                    "totalRowCount": 7,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SHOW TABLES"
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 6,
+                "end": 8,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "3a82e513-0b4e-47d9-9673-9a67842ea546"
+                    ]
+                },
+                "currentHeight": 36,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 140
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 140,
+                            "length": 1
+                        },
+                        "contentStart": 139,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "45455dfc-a0ae-4e2f-b31e-86a21fbe9307",
+                    "resultId": "3a82e513-0b4e-47d9-9673-9a67842ea546",
+                    "rows": [
+                        {
+                            "0": "Pit Alex",
+                            "1": "Brad Guzan",
+                            "2": "London"
+                        },
+                        {
+                            "0": "James Hoog",
+                            "1": "Nick Rimando",
+                            "2": "New York"
+                        },
+                        {
+                            "0": "Mc Lyon",
+                            "1": "Fabian Johnson",
+                            "2": "Paris"
+                        },
+                        {
+                            "0": "Nail Knite",
+                            "1": "Fabian Johnson",
+                            "2": "Paris"
+                        },
+                        {
+                            "0": "James Hoog",
+                            "1": "Brad Davis",
+                            "2": "New York"
+                        },
+                        {
+                            "0": "Pit Alex",
+                            "1": "Julian Green",
+                            "2": "London"
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "Salesman",
+                            "field": "0",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "cust_name",
+                            "field": "1",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "city",
+                            "field": "2",
+                            "dataType": {
+                                "type": 17
+                            }
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 6 records retrieved in 1.641ms"
+                    },
+                    "totalRowCount": 6,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SELECT salesmen.name AS \"Salesman\",customers.cust_name, customers.city FROM salesmen\nINNER JOIN customers\nON salesmen.city = customers.city"
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 9,
+                "end": 11,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "9bc86412-a085-46ed-ba18-7414e16b32f1"
+                    ]
+                },
+                "currentHeight": 36,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 187
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "45455dfc-a0ae-4e2f-b31e-86a21fbe9307",
+                    "resultId": "9bc86412-a085-46ed-ba18-7414e16b32f1",
+                    "rows": [
+                        {
+                            "0": 70007,
+                            "1": "948.50",
+                            "2": "Graham Zusi",
+                            "3": "California"
+                        },
+                        {
+                            "0": 70010,
+                            "1": "1983.43",
+                            "2": "Fabian Johnson",
+                            "3": "Paris"
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "ord_no",
+                            "field": "0",
+                            "dataType": {
+                                "type": 4
+                            }
+                        },
+                        {
+                            "title": "purch_amt",
+                            "field": "1",
+                            "dataType": {
+                                "type": 10
+                            }
+                        },
+                        {
+                            "title": "cust_name",
+                            "field": "2",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "city",
+                            "field": "3",
+                            "dataType": {
+                                "type": 17
+                            }
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 2 records retrieved in 0.864ms"
+                    },
+                    "totalRowCount": 2,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SELECT orders.ord_no, orders.purch_amt, customers.cust_name, customers.city\nFROM orders,customers\nWHERE orders.customer_id=customers.customer_id AND orders.purch_amt BETWEEN 500 AND 2000"
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 12,
+                "end": 12,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 4,
+                            "index": 0,
+                            "resultId": "df8d31ff-f87f-46bb-f727-a1142ee8b113",
+                            "content": "OK, 0 records retrieved in 0.71ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 5
+                        },
+                        "contentStart": 0,
+                        "state": 1
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 13,
+                "end": 16,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "d770e11b-5966-46ee-e849-775e81cbb793"
+                    ]
+                },
+                "currentHeight": 36,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 195
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "45455dfc-a0ae-4e2f-b31e-86a21fbe9307",
+                    "resultId": "d770e11b-5966-46ee-e849-775e81cbb793",
+                    "rows": [
+                        {
+                            "0": 70007,
+                            "1": "948.50",
+                            "2": "Graham Zusi",
+                            "3": "California"
+                        },
+                        {
+                            "0": 70010,
+                            "1": "1983.43",
+                            "2": "Fabian Johnson",
+                            "3": "Paris"
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "ord_no",
+                            "field": "0",
+                            "dataType": {
+                                "type": 4
+                            }
+                        },
+                        {
+                            "title": "purch_amt",
+                            "field": "1",
+                            "dataType": {
+                                "type": 10
+                            }
+                        },
+                        {
+                            "title": "cust_name",
+                            "field": "2",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "city",
+                            "field": "3",
+                            "dataType": {
+                                "type": 17
+                            }
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 2 records retrieved in 0.986ms"
+                    },
+                    "totalRowCount": 2,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SELECT orders.ord_no, orders.purch_amt, customers.cust_name, customers.city\nFROM orders\nINNER JOIN customers\nON orders.customer_id=customers.customer_id AND orders.purch_amt BETWEEN 500 AND 2000"
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 17,
+                "end": 20,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "4729d951-36ec-4db9-e0c3-3b15577e0e8f"
+                    ]
+                },
+                "currentHeight": 36,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 160
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "45455dfc-a0ae-4e2f-b31e-86a21fbe9307",
+                    "resultId": "4729d951-36ec-4db9-e0c3-3b15577e0e8f",
+                    "rows": [
+                        {
+                            "0": "Brad Guzan",
+                            "1": "London",
+                            "2": "Pit Alex",
+                            "3": "0.11"
+                        },
+                        {
+                            "0": "Nick Rimando",
+                            "1": "New York",
+                            "2": "James Hoog",
+                            "3": "0.15"
+                        },
+                        {
+                            "0": "Fabian Johnson",
+                            "1": "Paris",
+                            "2": "Mc Lyon",
+                            "3": "0.14"
+                        },
+                        {
+                            "0": "Fabian Johnson",
+                            "1": "Paris",
+                            "2": "Nail Knite",
+                            "3": "0.13"
+                        },
+                        {
+                            "0": "Brad Davis",
+                            "1": "New York",
+                            "2": "James Hoog",
+                            "3": "0.15"
+                        },
+                        {
+                            "0": "Julian Green",
+                            "1": "London",
+                            "2": "Pit Alex",
+                            "3": "0.11"
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "cust_name",
+                            "field": "0",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "city",
+                            "field": "1",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "Salesman",
+                            "field": "2",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "commission",
+                            "field": "3",
+                            "dataType": {
+                                "type": 10
+                            }
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 6 records retrieved in 1.169ms"
+                    },
+                    "totalRowCount": 6,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SELECT customers.cust_name, customers.city, salesmen.name as \"Salesman\", salesmen.commission\nFROM salesmen\nINNER JOIN customers\nON customers.city=salesmen.city"
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 21,
+                "end": 24,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "fd97a261-739b-439e-8ed2-5c8a13bf78d4"
+                    ]
+                },
+                "currentHeight": 36,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 191
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 191,
+                            "length": 0
+                        },
+                        "contentStart": 190,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "45455dfc-a0ae-4e2f-b31e-86a21fbe9307",
+                    "resultId": "fd97a261-739b-439e-8ed2-5c8a13bf78d4",
+                    "rows": [
+                        {
+                            "0": "Nick Rimando",
+                            "1": "New York",
+                            "2": "James Hoog",
+                            "3": "0.15"
+                        },
+                        {
+                            "0": "Fabian Johnson",
+                            "1": "Paris",
+                            "2": "Mc Lyon",
+                            "3": "0.14"
+                        },
+                        {
+                            "0": "Fabian Johnson",
+                            "1": "Paris",
+                            "2": "Nail Knite",
+                            "3": "0.13"
+                        },
+                        {
+                            "0": "Brad Davis",
+                            "1": "New York",
+                            "2": "James Hoog",
+                            "3": "0.15"
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "cust_name",
+                            "field": "0",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "city",
+                            "field": "1",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "Salesman",
+                            "field": "2",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "commission",
+                            "field": "3",
+                            "dataType": {
+                                "type": 10
+                            }
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 4 records retrieved in 1.013ms"
+                    },
+                    "totalRowCount": 4,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SELECT customers.cust_name, customers.city, salesmen.name as \"Salesman\", salesmen.commission\nFROM salesmen\nINNER JOIN customers\nON customers.city=salesmen.city AND salesmen.commission > 0.12"
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 25,
+                "end": 28,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "69352b38-99b2-4934-ee67-e5cead78f25a"
+                    ]
+                },
+                "currentHeight": 36,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 194
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "45455dfc-a0ae-4e2f-b31e-86a21fbe9307",
+                    "resultId": "69352b38-99b2-4934-ee67-e5cead78f25a",
+                    "rows": [
+                        {
+                            "0": "Brad Guzan",
+                            "1": "London",
+                            "2": "Paul Adam",
+                            "3": "0.13"
+                        },
+                        {
+                            "0": "Brad Guzan",
+                            "1": "London",
+                            "2": "Mc Lyon",
+                            "3": "0.14"
+                        },
+                        {
+                            "0": "Brad Guzan",
+                            "1": "London",
+                            "2": "Nail Knite",
+                            "3": "0.13"
+                        },
+                        {
+                            "0": "Brad Guzan",
+                            "1": "London",
+                            "2": "James Hoog",
+                            "3": "0.15"
+                        },
+                        {
+                            "0": "Nick Rimando",
+                            "1": "New York",
+                            "2": "Paul Adam",
+                            "3": "0.13"
+                        },
+                        {
+                            "0": "Nick Rimando",
+                            "1": "New York",
+                            "2": "Mc Lyon",
+                            "3": "0.14"
+                        },
+                        {
+                            "0": "Nick Rimando",
+                            "1": "New York",
+                            "2": "Nail Knite",
+                            "3": "0.13"
+                        },
+                        {
+                            "0": "Jozy Altidor",
+                            "1": "Moscow",
+                            "2": "Paul Adam",
+                            "3": "0.13"
+                        },
+                        {
+                            "0": "Jozy Altidor",
+                            "1": "Moscow",
+                            "2": "Mc Lyon",
+                            "3": "0.14"
+                        },
+                        {
+                            "0": "Jozy Altidor",
+                            "1": "Moscow",
+                            "2": "Nail Knite",
+                            "3": "0.13"
+                        },
+                        {
+                            "0": "Jozy Altidor",
+                            "1": "Moscow",
+                            "2": "James Hoog",
+                            "3": "0.15"
+                        },
+                        {
+                            "0": "Fabian Johnson",
+                            "1": "Paris",
+                            "2": "Paul Adam",
+                            "3": "0.13"
+                        },
+                        {
+                            "0": "Fabian Johnson",
+                            "1": "Paris",
+                            "2": "James Hoog",
+                            "3": "0.15"
+                        },
+                        {
+                            "0": "Graham Zusi",
+                            "1": "California",
+                            "2": "Paul Adam",
+                            "3": "0.13"
+                        },
+                        {
+                            "0": "Graham Zusi",
+                            "1": "California",
+                            "2": "Mc Lyon",
+                            "3": "0.14"
+                        },
+                        {
+                            "0": "Graham Zusi",
+                            "1": "California",
+                            "2": "Nail Knite",
+                            "3": "0.13"
+                        },
+                        {
+                            "0": "Graham Zusi",
+                            "1": "California",
+                            "2": "James Hoog",
+                            "3": "0.15"
+                        },
+                        {
+                            "0": "Brad Davis",
+                            "1": "New York",
+                            "2": "Paul Adam",
+                            "3": "0.13"
+                        },
+                        {
+                            "0": "Brad Davis",
+                            "1": "New York",
+                            "2": "Mc Lyon",
+                            "3": "0.14"
+                        },
+                        {
+                            "0": "Brad Davis",
+                            "1": "New York",
+                            "2": "Nail Knite",
+                            "3": "0.13"
+                        },
+                        {
+                            "0": "Julian Green",
+                            "1": "London",
+                            "2": "Paul Adam",
+                            "3": "0.13"
+                        },
+                        {
+                            "0": "Julian Green",
+                            "1": "London",
+                            "2": "Mc Lyon",
+                            "3": "0.14"
+                        },
+                        {
+                            "0": "Julian Green",
+                            "1": "London",
+                            "2": "Nail Knite",
+                            "3": "0.13"
+                        },
+                        {
+                            "0": "Julian Green",
+                            "1": "London",
+                            "2": "James Hoog",
+                            "3": "0.15"
+                        },
+                        {
+                            "0": "Geoff Cameron",
+                            "1": "Berlin",
+                            "2": "Paul Adam",
+                            "3": "0.13"
+                        },
+                        {
+                            "0": "Geoff Cameron",
+                            "1": "Berlin",
+                            "2": "Mc Lyon",
+                            "3": "0.14"
+                        },
+                        {
+                            "0": "Geoff Cameron",
+                            "1": "Berlin",
+                            "2": "Nail Knite",
+                            "3": "0.13"
+                        },
+                        {
+                            "0": "Geoff Cameron",
+                            "1": "Berlin",
+                            "2": "James Hoog",
+                            "3": "0.15"
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "cust_name",
+                            "field": "0",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "city",
+                            "field": "1",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "Salesman",
+                            "field": "2",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "commission",
+                            "field": "3",
+                            "dataType": {
+                                "type": 10
+                            }
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 28 records retrieved in 0.917ms"
+                    },
+                    "totalRowCount": 28,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SELECT customers.cust_name, customers.city, salesmen.name as \"Salesman\", salesmen.commission\nFROM salesmen\nINNER JOIN customers\nON customers.city != salesmen.city AND salesmen.commission > 0.12"
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 29,
+                "end": 29,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "f20a1425-90ff-4ce0-b522-7eed2887888d"
+                    ]
+                },
+                "currentHeight": 36,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 12
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "45455dfc-a0ae-4e2f-b31e-86a21fbe9307",
+                    "resultId": "f20a1425-90ff-4ce0-b522-7eed2887888d",
+                    "rows": [
+                        {
+                            "0": "customers"
+                        },
+                        {
+                            "0": "EMPLOYEE"
+                        },
+                        {
+                            "0": "nobel_win"
+                        },
+                        {
+                            "0": "orders"
+                        },
+                        {
+                            "0": "Persons"
+                        },
+                        {
+                            "0": "RAW_DATABASE"
+                        },
+                        {
+                            "0": "salesmen"
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "Tables_in_dbml",
+                            "field": "0",
+                            "dataType": {
+                                "type": 17
+                            }
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 7 records retrieved in 5.618ms"
+                    },
+                    "totalRowCount": 7,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SHOW TABLES"
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 30,
+                "end": 33,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "200905e1-0bab-48c1-fd35-ec09d006b839"
+                    ]
+                },
+                "currentHeight": 36,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 282
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "45455dfc-a0ae-4e2f-b31e-86a21fbe9307",
+                    "resultId": "200905e1-0bab-48c1-fd35-ec09d006b839",
+                    "rows": [
+                        {
+                            "0": 70002,
+                            "1": "2012-10-05",
+                            "2": "65.26",
+                            "3": "Nick Rimando",
+                            "4": 100,
+                            "5": "James Hoog",
+                            "6": "0.15"
+                        },
+                        {
+                            "0": 70005,
+                            "1": "2012-07-27",
+                            "2": "2400.60",
+                            "3": "Nick Rimando",
+                            "4": 100,
+                            "5": "James Hoog",
+                            "6": "0.15"
+                        },
+                        {
+                            "0": 70008,
+                            "1": "2012-09-10",
+                            "2": "5760.00",
+                            "3": "Nick Rimando",
+                            "4": 100,
+                            "5": "James Hoog",
+                            "6": "0.15"
+                        },
+                        {
+                            "0": 70013,
+                            "1": "2012-04-25",
+                            "2": "3045.60",
+                            "3": "Nick Rimando",
+                            "4": 100,
+                            "5": "James Hoog",
+                            "6": "0.15"
+                        },
+                        {
+                            "0": 70002,
+                            "1": "2012-10-05",
+                            "2": "65.26",
+                            "3": "Brad Davis",
+                            "4": 200,
+                            "5": "James Hoog",
+                            "6": "0.15"
+                        },
+                        {
+                            "0": 70005,
+                            "1": "2012-07-27",
+                            "2": "2400.60",
+                            "3": "Brad Davis",
+                            "4": 200,
+                            "5": "James Hoog",
+                            "6": "0.15"
+                        },
+                        {
+                            "0": 70008,
+                            "1": "2012-09-10",
+                            "2": "5760.00",
+                            "3": "Brad Davis",
+                            "4": 200,
+                            "5": "James Hoog",
+                            "6": "0.15"
+                        },
+                        {
+                            "0": 70013,
+                            "1": "2012-04-25",
+                            "2": "3045.60",
+                            "3": "Brad Davis",
+                            "4": 200,
+                            "5": "James Hoog",
+                            "6": "0.15"
+                        },
+                        {
+                            "0": 70001,
+                            "1": "2012-10-05",
+                            "2": "150.50",
+                            "3": "Graham Zusi",
+                            "4": 200,
+                            "5": "Nail Knite",
+                            "6": "0.13"
+                        },
+                        {
+                            "0": 70007,
+                            "1": "2012-09-10",
+                            "2": "948.50",
+                            "3": "Graham Zusi",
+                            "4": 200,
+                            "5": "Nail Knite",
+                            "6": "0.13"
+                        },
+                        {
+                            "0": 70012,
+                            "1": "2012-06-27",
+                            "2": "250.45",
+                            "3": "Graham Zusi",
+                            "4": 200,
+                            "5": "Nail Knite",
+                            "6": "0.13"
+                        },
+                        {
+                            "0": 70001,
+                            "1": "2012-10-05",
+                            "2": "150.50",
+                            "3": "Julian Green",
+                            "4": 300,
+                            "5": "Nail Knite",
+                            "6": "0.13"
+                        },
+                        {
+                            "0": 70007,
+                            "1": "2012-09-10",
+                            "2": "948.50",
+                            "3": "Julian Green",
+                            "4": 300,
+                            "5": "Nail Knite",
+                            "6": "0.13"
+                        },
+                        {
+                            "0": 70012,
+                            "1": "2012-06-27",
+                            "2": "250.45",
+                            "3": "Julian Green",
+                            "4": 300,
+                            "5": "Nail Knite",
+                            "6": "0.13"
+                        },
+                        {
+                            "0": 70003,
+                            "1": "2012-10-10",
+                            "2": "2480.40",
+                            "3": "Geoff Cameron",
+                            "4": 100,
+                            "5": "Lauson Hen",
+                            "6": "0.12"
+                        },
+                        {
+                            "0": 70004,
+                            "1": "2012-08-17",
+                            "2": "110.50",
+                            "3": "Geoff Cameron",
+                            "4": 100,
+                            "5": "Lauson Hen",
+                            "6": "0.12"
+                        },
+                        {
+                            "0": 70009,
+                            "1": "2012-09-10",
+                            "2": "270.65",
+                            "3": "Brad Guzan",
+                            "4": null,
+                            "5": "Pit Alex",
+                            "6": "0.11"
+                        },
+                        {
+                            "0": 70010,
+                            "1": "2012-10-10",
+                            "2": "1983.43",
+                            "3": "Fabian Johnson",
+                            "4": 300,
+                            "5": "Mc Lyon",
+                            "6": "0.14"
+                        },
+                        {
+                            "0": 70011,
+                            "1": "2012-08-17",
+                            "2": "75.29",
+                            "3": "Jozy Altidor",
+                            "4": 200,
+                            "5": "Paul Adam",
+                            "6": "0.13"
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "ord_no",
+                            "field": "0",
+                            "dataType": {
+                                "type": 4
+                            }
+                        },
+                        {
+                            "title": "ord_date",
+                            "field": "1",
+                            "dataType": {
+                                "type": 28
+                            }
+                        },
+                        {
+                            "title": "purch_amt",
+                            "field": "2",
+                            "dataType": {
+                                "type": 10
+                            }
+                        },
+                        {
+                            "title": "cust_name",
+                            "field": "3",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "grade",
+                            "field": "4",
+                            "dataType": {
+                                "type": 4
+                            }
+                        },
+                        {
+                            "title": "salesman",
+                            "field": "5",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "commission",
+                            "field": "6",
+                            "dataType": {
+                                "type": 10
+                            }
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 19 records retrieved in 1.136ms"
+                    },
+                    "totalRowCount": 19,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SELECT orders.ord_no, orders.ord_date, orders.purch_amt, customers.cust_name, customers.grade, salesmen.name as \"salesman\",salesmen.commission\nFROM orders\nINNER JOIN customers, salesmen\nWHERE orders.salesman_id = customers.salesman_id AND customers.salesman_id=salesmen.salesman_id"
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 34,
+                "end": 39,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "d06adfcf-8af8-4509-b4f6-bd09a2b40785"
+                    ]
+                },
+                "currentHeight": 36,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 289
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "45455dfc-a0ae-4e2f-b31e-86a21fbe9307",
+                    "resultId": "d06adfcf-8af8-4509-b4f6-bd09a2b40785",
+                    "rows": [
+                        {
+                            "0": 70002,
+                            "1": "2012-10-05",
+                            "2": "65.26",
+                            "3": "Nick Rimando",
+                            "4": 100,
+                            "5": "James Hoog",
+                            "6": "0.15"
+                        },
+                        {
+                            "0": 70005,
+                            "1": "2012-07-27",
+                            "2": "2400.60",
+                            "3": "Nick Rimando",
+                            "4": 100,
+                            "5": "James Hoog",
+                            "6": "0.15"
+                        },
+                        {
+                            "0": 70008,
+                            "1": "2012-09-10",
+                            "2": "5760.00",
+                            "3": "Nick Rimando",
+                            "4": 100,
+                            "5": "James Hoog",
+                            "6": "0.15"
+                        },
+                        {
+                            "0": 70013,
+                            "1": "2012-04-25",
+                            "2": "3045.60",
+                            "3": "Nick Rimando",
+                            "4": 100,
+                            "5": "James Hoog",
+                            "6": "0.15"
+                        },
+                        {
+                            "0": 70002,
+                            "1": "2012-10-05",
+                            "2": "65.26",
+                            "3": "Brad Davis",
+                            "4": 200,
+                            "5": "James Hoog",
+                            "6": "0.15"
+                        },
+                        {
+                            "0": 70005,
+                            "1": "2012-07-27",
+                            "2": "2400.60",
+                            "3": "Brad Davis",
+                            "4": 200,
+                            "5": "James Hoog",
+                            "6": "0.15"
+                        },
+                        {
+                            "0": 70008,
+                            "1": "2012-09-10",
+                            "2": "5760.00",
+                            "3": "Brad Davis",
+                            "4": 200,
+                            "5": "James Hoog",
+                            "6": "0.15"
+                        },
+                        {
+                            "0": 70013,
+                            "1": "2012-04-25",
+                            "2": "3045.60",
+                            "3": "Brad Davis",
+                            "4": 200,
+                            "5": "James Hoog",
+                            "6": "0.15"
+                        },
+                        {
+                            "0": 70001,
+                            "1": "2012-10-05",
+                            "2": "150.50",
+                            "3": "Graham Zusi",
+                            "4": 200,
+                            "5": "Nail Knite",
+                            "6": "0.13"
+                        },
+                        {
+                            "0": 70007,
+                            "1": "2012-09-10",
+                            "2": "948.50",
+                            "3": "Graham Zusi",
+                            "4": 200,
+                            "5": "Nail Knite",
+                            "6": "0.13"
+                        },
+                        {
+                            "0": 70012,
+                            "1": "2012-06-27",
+                            "2": "250.45",
+                            "3": "Graham Zusi",
+                            "4": 200,
+                            "5": "Nail Knite",
+                            "6": "0.13"
+                        },
+                        {
+                            "0": 70001,
+                            "1": "2012-10-05",
+                            "2": "150.50",
+                            "3": "Julian Green",
+                            "4": 300,
+                            "5": "Nail Knite",
+                            "6": "0.13"
+                        },
+                        {
+                            "0": 70007,
+                            "1": "2012-09-10",
+                            "2": "948.50",
+                            "3": "Julian Green",
+                            "4": 300,
+                            "5": "Nail Knite",
+                            "6": "0.13"
+                        },
+                        {
+                            "0": 70012,
+                            "1": "2012-06-27",
+                            "2": "250.45",
+                            "3": "Julian Green",
+                            "4": 300,
+                            "5": "Nail Knite",
+                            "6": "0.13"
+                        },
+                        {
+                            "0": 70003,
+                            "1": "2012-10-10",
+                            "2": "2480.40",
+                            "3": "Geoff Cameron",
+                            "4": 100,
+                            "5": "Lauson Hen",
+                            "6": "0.12"
+                        },
+                        {
+                            "0": 70004,
+                            "1": "2012-08-17",
+                            "2": "110.50",
+                            "3": "Geoff Cameron",
+                            "4": 100,
+                            "5": "Lauson Hen",
+                            "6": "0.12"
+                        },
+                        {
+                            "0": 70009,
+                            "1": "2012-09-10",
+                            "2": "270.65",
+                            "3": "Brad Guzan",
+                            "4": null,
+                            "5": "Pit Alex",
+                            "6": "0.11"
+                        },
+                        {
+                            "0": 70010,
+                            "1": "2012-10-10",
+                            "2": "1983.43",
+                            "3": "Fabian Johnson",
+                            "4": 300,
+                            "5": "Mc Lyon",
+                            "6": "0.14"
+                        },
+                        {
+                            "0": 70011,
+                            "1": "2012-08-17",
+                            "2": "75.29",
+                            "3": "Jozy Altidor",
+                            "4": 200,
+                            "5": "Paul Adam",
+                            "6": "0.13"
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "ord_no",
+                            "field": "0",
+                            "dataType": {
+                                "type": 4
+                            }
+                        },
+                        {
+                            "title": "ord_date",
+                            "field": "1",
+                            "dataType": {
+                                "type": 28
+                            }
+                        },
+                        {
+                            "title": "purch_amt",
+                            "field": "2",
+                            "dataType": {
+                                "type": 10
+                            }
+                        },
+                        {
+                            "title": "cust_name",
+                            "field": "3",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "grade",
+                            "field": "4",
+                            "dataType": {
+                                "type": 4
+                            }
+                        },
+                        {
+                            "title": "salesman",
+                            "field": "5",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "commission",
+                            "field": "6",
+                            "dataType": {
+                                "type": 10
+                            }
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 19 records retrieved in 2.735ms"
+                    },
+                    "totalRowCount": 19,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SELECT orders.ord_no, orders.ord_date, orders.purch_amt, customers.cust_name, customers.grade, salesmen.name as \"salesman\",salesmen.commission\nFROM orders\nINNER JOIN customers\nON orders.salesman_id = customers.salesman_id \nINNER JOIN salesmen\nON customers.salesman_id=salesmen.salesman_id"
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 40,
+                "end": 45,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "e87df7d7-4be5-48f2-8d06-993abbb801a9"
+                    ]
+                },
+                "currentHeight": 352,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 155
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "45455dfc-a0ae-4e2f-b31e-86a21fbe9307",
+                    "resultId": "e87df7d7-4be5-48f2-8d06-993abbb801a9",
+                    "rows": [
+                        {
+                            "0": 70002,
+                            "1": "65.26",
+                            "2": "2012-10-05",
+                            "3": 3002,
+                            "4": 5001,
+                            "5": 3002,
+                            "6": "Nick Rimando",
+                            "7": "New York",
+                            "8": 100,
+                            "9": 5001,
+                            "10": 5001,
+                            "11": "James Hoog",
+                            "12": "New York",
+                            "13": "0.15"
+                        },
+                        {
+                            "0": 70005,
+                            "1": "2400.60",
+                            "2": "2012-07-27",
+                            "3": 3007,
+                            "4": 5001,
+                            "5": 3002,
+                            "6": "Nick Rimando",
+                            "7": "New York",
+                            "8": 100,
+                            "9": 5001,
+                            "10": 5001,
+                            "11": "James Hoog",
+                            "12": "New York",
+                            "13": "0.15"
+                        },
+                        {
+                            "0": 70008,
+                            "1": "5760.00",
+                            "2": "2012-09-10",
+                            "3": 3002,
+                            "4": 5001,
+                            "5": 3002,
+                            "6": "Nick Rimando",
+                            "7": "New York",
+                            "8": 100,
+                            "9": 5001,
+                            "10": 5001,
+                            "11": "James Hoog",
+                            "12": "New York",
+                            "13": "0.15"
+                        },
+                        {
+                            "0": 70013,
+                            "1": "3045.60",
+                            "2": "2012-04-25",
+                            "3": 3002,
+                            "4": 5001,
+                            "5": 3002,
+                            "6": "Nick Rimando",
+                            "7": "New York",
+                            "8": 100,
+                            "9": 5001,
+                            "10": 5001,
+                            "11": "James Hoog",
+                            "12": "New York",
+                            "13": "0.15"
+                        },
+                        {
+                            "0": 70002,
+                            "1": "65.26",
+                            "2": "2012-10-05",
+                            "3": 3002,
+                            "4": 5001,
+                            "5": 3007,
+                            "6": "Brad Davis",
+                            "7": "New York",
+                            "8": 200,
+                            "9": 5001,
+                            "10": 5001,
+                            "11": "James Hoog",
+                            "12": "New York",
+                            "13": "0.15"
+                        },
+                        {
+                            "0": 70005,
+                            "1": "2400.60",
+                            "2": "2012-07-27",
+                            "3": 3007,
+                            "4": 5001,
+                            "5": 3007,
+                            "6": "Brad Davis",
+                            "7": "New York",
+                            "8": 200,
+                            "9": 5001,
+                            "10": 5001,
+                            "11": "James Hoog",
+                            "12": "New York",
+                            "13": "0.15"
+                        },
+                        {
+                            "0": 70008,
+                            "1": "5760.00",
+                            "2": "2012-09-10",
+                            "3": 3002,
+                            "4": 5001,
+                            "5": 3007,
+                            "6": "Brad Davis",
+                            "7": "New York",
+                            "8": 200,
+                            "9": 5001,
+                            "10": 5001,
+                            "11": "James Hoog",
+                            "12": "New York",
+                            "13": "0.15"
+                        },
+                        {
+                            "0": 70013,
+                            "1": "3045.60",
+                            "2": "2012-04-25",
+                            "3": 3002,
+                            "4": 5001,
+                            "5": 3007,
+                            "6": "Brad Davis",
+                            "7": "New York",
+                            "8": 200,
+                            "9": 5001,
+                            "10": 5001,
+                            "11": "James Hoog",
+                            "12": "New York",
+                            "13": "0.15"
+                        },
+                        {
+                            "0": 70001,
+                            "1": "150.50",
+                            "2": "2012-10-05",
+                            "3": 3005,
+                            "4": 5002,
+                            "5": 3005,
+                            "6": "Graham Zusi",
+                            "7": "California",
+                            "8": 200,
+                            "9": 5002,
+                            "10": 5002,
+                            "11": "Nail Knite",
+                            "12": "Paris",
+                            "13": "0.13"
+                        },
+                        {
+                            "0": 70007,
+                            "1": "948.50",
+                            "2": "2012-09-10",
+                            "3": 3005,
+                            "4": 5002,
+                            "5": 3005,
+                            "6": "Graham Zusi",
+                            "7": "California",
+                            "8": 200,
+                            "9": 5002,
+                            "10": 5002,
+                            "11": "Nail Knite",
+                            "12": "Paris",
+                            "13": "0.13"
+                        },
+                        {
+                            "0": 70012,
+                            "1": "250.45",
+                            "2": "2012-06-27",
+                            "3": 3008,
+                            "4": 5002,
+                            "5": 3005,
+                            "6": "Graham Zusi",
+                            "7": "California",
+                            "8": 200,
+                            "9": 5002,
+                            "10": 5002,
+                            "11": "Nail Knite",
+                            "12": "Paris",
+                            "13": "0.13"
+                        },
+                        {
+                            "0": 70001,
+                            "1": "150.50",
+                            "2": "2012-10-05",
+                            "3": 3005,
+                            "4": 5002,
+                            "5": 3008,
+                            "6": "Julian Green",
+                            "7": "London",
+                            "8": 300,
+                            "9": 5002,
+                            "10": 5002,
+                            "11": "Nail Knite",
+                            "12": "Paris",
+                            "13": "0.13"
+                        },
+                        {
+                            "0": 70007,
+                            "1": "948.50",
+                            "2": "2012-09-10",
+                            "3": 3005,
+                            "4": 5002,
+                            "5": 3008,
+                            "6": "Julian Green",
+                            "7": "London",
+                            "8": 300,
+                            "9": 5002,
+                            "10": 5002,
+                            "11": "Nail Knite",
+                            "12": "Paris",
+                            "13": "0.13"
+                        },
+                        {
+                            "0": 70012,
+                            "1": "250.45",
+                            "2": "2012-06-27",
+                            "3": 3008,
+                            "4": 5002,
+                            "5": 3008,
+                            "6": "Julian Green",
+                            "7": "London",
+                            "8": 300,
+                            "9": 5002,
+                            "10": 5002,
+                            "11": "Nail Knite",
+                            "12": "Paris",
+                            "13": "0.13"
+                        },
+                        {
+                            "0": 70003,
+                            "1": "2480.40",
+                            "2": "2012-10-10",
+                            "3": 3009,
+                            "4": 5003,
+                            "5": 3009,
+                            "6": "Geoff Cameron",
+                            "7": "Berlin",
+                            "8": 100,
+                            "9": 5003,
+                            "10": 5003,
+                            "11": "Lauson Hen",
+                            "12": "San Jose",
+                            "13": "0.12"
+                        },
+                        {
+                            "0": 70004,
+                            "1": "110.50",
+                            "2": "2012-08-17",
+                            "3": 3009,
+                            "4": 5003,
+                            "5": 3009,
+                            "6": "Geoff Cameron",
+                            "7": "Berlin",
+                            "8": 100,
+                            "9": 5003,
+                            "10": 5003,
+                            "11": "Lauson Hen",
+                            "12": "San Jose",
+                            "13": "0.12"
+                        },
+                        {
+                            "0": 70009,
+                            "1": "270.65",
+                            "2": "2012-09-10",
+                            "3": 3001,
+                            "4": 5005,
+                            "5": 3001,
+                            "6": "Brad Guzan",
+                            "7": "London",
+                            "8": null,
+                            "9": 5005,
+                            "10": 5005,
+                            "11": "Pit Alex",
+                            "12": "London",
+                            "13": "0.11"
+                        },
+                        {
+                            "0": 70010,
+                            "1": "1983.43",
+                            "2": "2012-10-10",
+                            "3": 3004,
+                            "4": 5006,
+                            "5": 3004,
+                            "6": "Fabian Johnson",
+                            "7": "Paris",
+                            "8": 300,
+                            "9": 5006,
+                            "10": 5006,
+                            "11": "Mc Lyon",
+                            "12": "Paris",
+                            "13": "0.14"
+                        },
+                        {
+                            "0": 70011,
+                            "1": "75.29",
+                            "2": "2012-08-17",
+                            "3": 3003,
+                            "4": 5007,
+                            "5": 3003,
+                            "6": "Jozy Altidor",
+                            "7": "Moscow",
+                            "8": 200,
+                            "9": 5007,
+                            "10": 5007,
+                            "11": "Paul Adam",
+                            "12": "Rome",
+                            "13": "0.13"
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "ord_no",
+                            "field": "0",
+                            "dataType": {
+                                "type": 4
+                            }
+                        },
+                        {
+                            "title": "purch_amt",
+                            "field": "1",
+                            "dataType": {
+                                "type": 10
+                            }
+                        },
+                        {
+                            "title": "ord_date",
+                            "field": "2",
+                            "dataType": {
+                                "type": 28
+                            }
+                        },
+                        {
+                            "title": "customer_id",
+                            "field": "3",
+                            "dataType": {
+                                "type": 4
+                            }
+                        },
+                        {
+                            "title": "salesman_id",
+                            "field": "4",
+                            "dataType": {
+                                "type": 4
+                            }
+                        },
+                        {
+                            "title": "customer_id",
+                            "field": "5",
+                            "dataType": {
+                                "type": 4
+                            }
+                        },
+                        {
+                            "title": "cust_name",
+                            "field": "6",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "city",
+                            "field": "7",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "grade",
+                            "field": "8",
+                            "dataType": {
+                                "type": 4
+                            }
+                        },
+                        {
+                            "title": "salesman_id",
+                            "field": "9",
+                            "dataType": {
+                                "type": 4
+                            }
+                        },
+                        {
+                            "title": "salesman_id",
+                            "field": "10",
+                            "dataType": {
+                                "type": 4
+                            }
+                        },
+                        {
+                            "title": "name",
+                            "field": "11",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "city",
+                            "field": "12",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "commission",
+                            "field": "13",
+                            "dataType": {
+                                "type": 10
+                            }
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 19 records retrieved in 2.166ms"
+                    },
+                    "totalRowCount": 19,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SELECT *\nFROM orders\nINNER JOIN customers\nON orders.salesman_id = customers.salesman_id \nINNER JOIN salesmen\nON customers.salesman_id=salesmen.salesman_id"
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 46,
+                "end": 49,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "abaa94ec-7655-4e3b-d22d-c15e85c87bbe"
+                    ]
+                },
+                "currentHeight": 197,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 66
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "45455dfc-a0ae-4e2f-b31e-86a21fbe9307",
+                    "resultId": "abaa94ec-7655-4e3b-d22d-c15e85c87bbe",
+                    "rows": [
+                        {
+                            "0": 5001,
+                            "1": "New York",
+                            "2": 3002,
+                            "3": 70002,
+                            "4": "65.26",
+                            "5": "2012-10-05",
+                            "6": "Nick Rimando",
+                            "7": 100,
+                            "8": "James Hoog",
+                            "9": "0.15"
+                        },
+                        {
+                            "0": 5001,
+                            "1": "New York",
+                            "2": 3002,
+                            "3": 70008,
+                            "4": "5760.00",
+                            "5": "2012-09-10",
+                            "6": "Nick Rimando",
+                            "7": 100,
+                            "8": "James Hoog",
+                            "9": "0.15"
+                        },
+                        {
+                            "0": 5001,
+                            "1": "New York",
+                            "2": 3002,
+                            "3": 70013,
+                            "4": "3045.60",
+                            "5": "2012-04-25",
+                            "6": "Nick Rimando",
+                            "7": 100,
+                            "8": "James Hoog",
+                            "9": "0.15"
+                        },
+                        {
+                            "0": 5001,
+                            "1": "New York",
+                            "2": 3007,
+                            "3": 70005,
+                            "4": "2400.60",
+                            "5": "2012-07-27",
+                            "6": "Brad Davis",
+                            "7": 200,
+                            "8": "James Hoog",
+                            "9": "0.15"
+                        },
+                        {
+                            "0": 5005,
+                            "1": "London",
+                            "2": 3001,
+                            "3": 70009,
+                            "4": "270.65",
+                            "5": "2012-09-10",
+                            "6": "Brad Guzan",
+                            "7": null,
+                            "8": "Pit Alex",
+                            "9": "0.11"
+                        },
+                        {
+                            "0": 5006,
+                            "1": "Paris",
+                            "2": 3004,
+                            "3": 70010,
+                            "4": "1983.43",
+                            "5": "2012-10-10",
+                            "6": "Fabian Johnson",
+                            "7": 300,
+                            "8": "Mc Lyon",
+                            "9": "0.14"
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "salesman_id",
+                            "field": "0",
+                            "dataType": {
+                                "type": 4
+                            }
+                        },
+                        {
+                            "title": "city",
+                            "field": "1",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "customer_id",
+                            "field": "2",
+                            "dataType": {
+                                "type": 4
+                            }
+                        },
+                        {
+                            "title": "ord_no",
+                            "field": "3",
+                            "dataType": {
+                                "type": 4
+                            }
+                        },
+                        {
+                            "title": "purch_amt",
+                            "field": "4",
+                            "dataType": {
+                                "type": 10
+                            }
+                        },
+                        {
+                            "title": "ord_date",
+                            "field": "5",
+                            "dataType": {
+                                "type": 28
+                            }
+                        },
+                        {
+                            "title": "cust_name",
+                            "field": "6",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "grade",
+                            "field": "7",
+                            "dataType": {
+                                "type": 4
+                            }
+                        },
+                        {
+                            "title": "name",
+                            "field": "8",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "commission",
+                            "field": "9",
+                            "dataType": {
+                                "type": 10
+                            }
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 6 records retrieved in 2.859ms"
+                    },
+                    "totalRowCount": 6,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SELECT *\nFROM orders\nNATURAL JOIN customers\nNATURAL JOIN salesmen"
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 50,
+                "end": 50,
+                "language": "mysql",
+                "currentHeight": 180,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 0
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        }
+    ]
+}
