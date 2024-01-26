@@ -2,7 +2,7 @@
     "type": "MySQLNotebook",
     "version": "1.0",
     "caption": "DB Notebook",
-    "content": "\\about\nSHOW DATABASES;\nUSE DBMS;\nSHOW TABLES;\n-- joins And Creating VIEW In MySql\nSELECT a.cust_name, a.city, b.ord_no, b.ord_date, b. purch_amt\nFROM customers a\nLEFT JOIN orders b\nON a.customer_id=b.customer_id;\nSELECT * FROM W3R_Q15;\nSELECT a.cust_name, a.city, b.ord_no, b.ord_date, b. purch_amt\nFROM customers a\nCROSS JOIN orders b\nON a.customer_id=b.customer_id AND\na.grade != Null;\nCREATE VIEW W3R_Q16 AS\nSELECT a.cust_name, a.city, b.ord_no, b.ord_date, b. purch_amt\nFROM customers a\nCROSS JOIN orders b\nON a.customer_id=b.customer_id AND\na.grade != Null;\nSELECT * FROM W3R_Q16;\n",
+    "content": "\\about\nSHOW DATABASES;\nUSE DBMS;\nSHOW TABLES;\n-- joins And Creating VIEW In MySql\nSELECT a.cust_name, a.city, b.ord_no, b.ord_date, b. purch_amt\nFROM customers a\nLEFT JOIN orders b\nON a.customer_id=b.customer_id;\nSELECT * FROM W3R_Q15;\nSELECT a.cust_name, a.city, b.ord_no, b.ord_date, b. purch_amt\nFROM customers a\nCROSS JOIN orders b\nON a.customer_id=b.customer_id AND\na.grade IS NOT Null;\nCREATE VIEW W3R_Q16 AS\nSELECT a.cust_name, a.city, b.ord_no, b.ord_date, b. purch_amt\nFROM customers a\nCROSS JOIN orders b\nON a.customer_id=b.customer_id AND\na.grade IS NOT Null;\nSELECT * FROM W3R_Q16;\nSELECT * FROM\nsalesmen,customers;\nSELECT * FROM\nsalesmen, customers;\nCREATE VIEW W3R_Q17 AS\nSELECT * FROM\nsalesmen, customers;\n\n",
     "options": {
         "tabSize": 4,
         "insertSpaces": true,
@@ -15,11 +15,11 @@
             {
                 "inSelectionMode": false,
                 "selectionStart": {
-                    "lineNumber": 23,
+                    "lineNumber": 31,
                     "column": 1
                 },
                 "position": {
-                    "lineNumber": 23,
+                    "lineNumber": 31,
                     "column": 1
                 }
             }
@@ -27,10 +27,10 @@
         "viewState": {
             "scrollLeft": 0,
             "firstPosition": {
-                "lineNumber": 10,
+                "lineNumber": 25,
                 "column": 1
             },
-            "firstPositionDeltaTop": 14
+            "firstPositionDeltaTop": 202
         },
         "contributionsState": {
             "editor.contrib.folding": {},
@@ -283,7 +283,7 @@
                         "5a1cfa4d-0e48-4f93-ad55-6b76ad5104c0"
                     ]
                 },
-                "currentHeight": 316,
+                "currentHeight": 36,
                 "statements": [
                     {
                         "delimiter": ";",
@@ -445,7 +445,7 @@
                         "502d866f-0cf7-4510-e16b-e4ad2aabc028"
                     ]
                 },
-                "currentHeight": 316,
+                "currentHeight": 36,
                 "statements": [
                     {
                         "delimiter": ";",
@@ -602,30 +602,154 @@
                 "end": 15,
                 "language": "mysql",
                 "result": {
-                    "type": "text",
-                    "text": [
-                        {
-                            "type": 4,
-                            "index": 0,
-                            "resultId": "acb28e72-eed1-4204-c1b4-ed2fe5476d2c",
-                            "content": "OK, 0 records retrieved in 0.766ms"
-                        }
+                    "type": "resultIds",
+                    "list": [
+                        "2704f49e-2ad2-4e26-946b-a2d496892cac"
                     ]
                 },
-                "currentHeight": 28,
+                "currentHeight": 36,
                 "statements": [
                     {
                         "delimiter": ";",
                         "span": {
                             "start": 0,
-                            "length": 151
+                            "length": 155
                         },
                         "contentStart": 0,
                         "state": 0
                     }
                 ]
             },
-            "data": []
+            "data": [
+                {
+                    "tabId": "95bb2dea-53c3-42cf-f8e8-0f13d22a6283",
+                    "resultId": "2704f49e-2ad2-4e26-946b-a2d496892cac",
+                    "rows": [
+                        {
+                            "0": "Nick Rimando",
+                            "1": "New York",
+                            "2": 70002,
+                            "3": "2012-10-05",
+                            "4": "65.26"
+                        },
+                        {
+                            "0": "Nick Rimando",
+                            "1": "New York",
+                            "2": 70008,
+                            "3": "2012-09-10",
+                            "4": "5760.00"
+                        },
+                        {
+                            "0": "Nick Rimando",
+                            "1": "New York",
+                            "2": 70013,
+                            "3": "2012-04-25",
+                            "4": "3045.60"
+                        },
+                        {
+                            "0": "Jozy Altidor",
+                            "1": "Moscow",
+                            "2": 70011,
+                            "3": "2012-08-17",
+                            "4": "75.29"
+                        },
+                        {
+                            "0": "Fabian Johnson",
+                            "1": "Paris",
+                            "2": 70010,
+                            "3": "2012-10-10",
+                            "4": "1983.43"
+                        },
+                        {
+                            "0": "Graham Zusi",
+                            "1": "California",
+                            "2": 70001,
+                            "3": "2012-10-05",
+                            "4": "150.50"
+                        },
+                        {
+                            "0": "Graham Zusi",
+                            "1": "California",
+                            "2": 70007,
+                            "3": "2012-09-10",
+                            "4": "948.50"
+                        },
+                        {
+                            "0": "Brad Davis",
+                            "1": "New York",
+                            "2": 70005,
+                            "3": "2012-07-27",
+                            "4": "2400.60"
+                        },
+                        {
+                            "0": "Julian Green",
+                            "1": "London",
+                            "2": 70012,
+                            "3": "2012-06-27",
+                            "4": "250.45"
+                        },
+                        {
+                            "0": "Geoff Cameron",
+                            "1": "Berlin",
+                            "2": 70003,
+                            "3": "2012-10-10",
+                            "4": "2480.40"
+                        },
+                        {
+                            "0": "Geoff Cameron",
+                            "1": "Berlin",
+                            "2": 70004,
+                            "3": "2012-08-17",
+                            "4": "110.50"
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "cust_name",
+                            "field": "0",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "city",
+                            "field": "1",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "ord_no",
+                            "field": "2",
+                            "dataType": {
+                                "type": 4
+                            }
+                        },
+                        {
+                            "title": "ord_date",
+                            "field": "3",
+                            "dataType": {
+                                "type": 28
+                            }
+                        },
+                        {
+                            "title": "purch_amt",
+                            "field": "4",
+                            "dataType": {
+                                "type": 10
+                            }
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 11 records retrieved in 1.502ms"
+                    },
+                    "totalRowCount": 11,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SELECT a.cust_name, a.city, b.ord_no, b.ord_date, b. purch_amt\nFROM customers a\nCROSS JOIN orders b\nON a.customer_id=b.customer_id AND\na.grade IS NOT Null"
+                }
+            ]
         },
         {
             "state": {
@@ -638,8 +762,8 @@
                         {
                             "type": 4,
                             "index": 0,
-                            "resultId": "555b053d-9b7b-4e5e-b812-d81a5a3a340f",
-                            "content": "OK, 0 records retrieved in 4.544ms"
+                            "resultId": "f8ef0421-605b-4573-babf-eb5465e34379",
+                            "content": "OK, 0 records retrieved in 2.246ms"
                         }
                     ]
                 },
@@ -649,7 +773,7 @@
                         "delimiter": ";",
                         "span": {
                             "start": 0,
-                            "length": 174
+                            "length": 178
                         },
                         "contentStart": 0,
                         "state": 0
@@ -664,17 +788,12 @@
                 "end": 22,
                 "language": "mysql",
                 "result": {
-                    "type": "text",
-                    "text": [
-                        {
-                            "type": 4,
-                            "index": 0,
-                            "resultId": "6d1b5b86-febe-448d-9604-37ef3963362a",
-                            "content": "OK, 0 records retrieved in 1.771ms"
-                        }
+                    "type": "resultIds",
+                    "list": [
+                        "4034a721-0e05-421d-ed90-0461dc35d403"
                     ]
                 },
-                "currentHeight": 28,
+                "currentHeight": 36,
                 "statements": [
                     {
                         "delimiter": ";",
@@ -687,12 +806,1452 @@
                     }
                 ]
             },
-            "data": []
+            "data": [
+                {
+                    "tabId": "95bb2dea-53c3-42cf-f8e8-0f13d22a6283",
+                    "resultId": "4034a721-0e05-421d-ed90-0461dc35d403",
+                    "rows": [
+                        {
+                            "0": "Nick Rimando",
+                            "1": "New York",
+                            "2": 70002,
+                            "3": "2012-10-05",
+                            "4": "65.26"
+                        },
+                        {
+                            "0": "Nick Rimando",
+                            "1": "New York",
+                            "2": 70008,
+                            "3": "2012-09-10",
+                            "4": "5760.00"
+                        },
+                        {
+                            "0": "Nick Rimando",
+                            "1": "New York",
+                            "2": 70013,
+                            "3": "2012-04-25",
+                            "4": "3045.60"
+                        },
+                        {
+                            "0": "Jozy Altidor",
+                            "1": "Moscow",
+                            "2": 70011,
+                            "3": "2012-08-17",
+                            "4": "75.29"
+                        },
+                        {
+                            "0": "Fabian Johnson",
+                            "1": "Paris",
+                            "2": 70010,
+                            "3": "2012-10-10",
+                            "4": "1983.43"
+                        },
+                        {
+                            "0": "Graham Zusi",
+                            "1": "California",
+                            "2": 70001,
+                            "3": "2012-10-05",
+                            "4": "150.50"
+                        },
+                        {
+                            "0": "Graham Zusi",
+                            "1": "California",
+                            "2": 70007,
+                            "3": "2012-09-10",
+                            "4": "948.50"
+                        },
+                        {
+                            "0": "Brad Davis",
+                            "1": "New York",
+                            "2": 70005,
+                            "3": "2012-07-27",
+                            "4": "2400.60"
+                        },
+                        {
+                            "0": "Julian Green",
+                            "1": "London",
+                            "2": 70012,
+                            "3": "2012-06-27",
+                            "4": "250.45"
+                        },
+                        {
+                            "0": "Geoff Cameron",
+                            "1": "Berlin",
+                            "2": 70003,
+                            "3": "2012-10-10",
+                            "4": "2480.40"
+                        },
+                        {
+                            "0": "Geoff Cameron",
+                            "1": "Berlin",
+                            "2": 70004,
+                            "3": "2012-08-17",
+                            "4": "110.50"
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "cust_name",
+                            "field": "0",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "city",
+                            "field": "1",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "ord_no",
+                            "field": "2",
+                            "dataType": {
+                                "type": 4
+                            }
+                        },
+                        {
+                            "title": "ord_date",
+                            "field": "3",
+                            "dataType": {
+                                "type": 28
+                            }
+                        },
+                        {
+                            "title": "purch_amt",
+                            "field": "4",
+                            "dataType": {
+                                "type": 10
+                            }
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 11 records retrieved in 1.345ms"
+                    },
+                    "totalRowCount": 11,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SELECT * FROM W3R_Q16"
+                }
+            ]
         },
         {
             "state": {
                 "start": 23,
-                "end": 23,
+                "end": 24,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "ad182de7-354c-48f3-e91d-1fdf8b6dee1e"
+                    ]
+                },
+                "currentHeight": 352,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 33
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "95bb2dea-53c3-42cf-f8e8-0f13d22a6283",
+                    "resultId": "ad182de7-354c-48f3-e91d-1fdf8b6dee1e",
+                    "rows": [
+                        {
+                            "0": 5007,
+                            "1": "Paul Adam",
+                            "2": "Rome",
+                            "3": "0.13",
+                            "4": 3001,
+                            "5": "Brad Guzan",
+                            "6": "London",
+                            "7": null,
+                            "8": 5005
+                        },
+                        {
+                            "0": 5006,
+                            "1": "Mc Lyon",
+                            "2": "Paris",
+                            "3": "0.14",
+                            "4": 3001,
+                            "5": "Brad Guzan",
+                            "6": "London",
+                            "7": null,
+                            "8": 5005
+                        },
+                        {
+                            "0": 5005,
+                            "1": "Pit Alex",
+                            "2": "London",
+                            "3": "0.11",
+                            "4": 3001,
+                            "5": "Brad Guzan",
+                            "6": "London",
+                            "7": null,
+                            "8": 5005
+                        },
+                        {
+                            "0": 5003,
+                            "1": "Lauson Hen",
+                            "2": "San Jose",
+                            "3": "0.12",
+                            "4": 3001,
+                            "5": "Brad Guzan",
+                            "6": "London",
+                            "7": null,
+                            "8": 5005
+                        },
+                        {
+                            "0": 5002,
+                            "1": "Nail Knite",
+                            "2": "Paris",
+                            "3": "0.13",
+                            "4": 3001,
+                            "5": "Brad Guzan",
+                            "6": "London",
+                            "7": null,
+                            "8": 5005
+                        },
+                        {
+                            "0": 5001,
+                            "1": "James Hoog",
+                            "2": "New York",
+                            "3": "0.15",
+                            "4": 3001,
+                            "5": "Brad Guzan",
+                            "6": "London",
+                            "7": null,
+                            "8": 5005
+                        },
+                        {
+                            "0": 5007,
+                            "1": "Paul Adam",
+                            "2": "Rome",
+                            "3": "0.13",
+                            "4": 3002,
+                            "5": "Nick Rimando",
+                            "6": "New York",
+                            "7": 100,
+                            "8": 5001
+                        },
+                        {
+                            "0": 5006,
+                            "1": "Mc Lyon",
+                            "2": "Paris",
+                            "3": "0.14",
+                            "4": 3002,
+                            "5": "Nick Rimando",
+                            "6": "New York",
+                            "7": 100,
+                            "8": 5001
+                        },
+                        {
+                            "0": 5005,
+                            "1": "Pit Alex",
+                            "2": "London",
+                            "3": "0.11",
+                            "4": 3002,
+                            "5": "Nick Rimando",
+                            "6": "New York",
+                            "7": 100,
+                            "8": 5001
+                        },
+                        {
+                            "0": 5003,
+                            "1": "Lauson Hen",
+                            "2": "San Jose",
+                            "3": "0.12",
+                            "4": 3002,
+                            "5": "Nick Rimando",
+                            "6": "New York",
+                            "7": 100,
+                            "8": 5001
+                        },
+                        {
+                            "0": 5002,
+                            "1": "Nail Knite",
+                            "2": "Paris",
+                            "3": "0.13",
+                            "4": 3002,
+                            "5": "Nick Rimando",
+                            "6": "New York",
+                            "7": 100,
+                            "8": 5001
+                        },
+                        {
+                            "0": 5001,
+                            "1": "James Hoog",
+                            "2": "New York",
+                            "3": "0.15",
+                            "4": 3002,
+                            "5": "Nick Rimando",
+                            "6": "New York",
+                            "7": 100,
+                            "8": 5001
+                        },
+                        {
+                            "0": 5007,
+                            "1": "Paul Adam",
+                            "2": "Rome",
+                            "3": "0.13",
+                            "4": 3003,
+                            "5": "Jozy Altidor",
+                            "6": "Moscow",
+                            "7": 200,
+                            "8": 5007
+                        },
+                        {
+                            "0": 5006,
+                            "1": "Mc Lyon",
+                            "2": "Paris",
+                            "3": "0.14",
+                            "4": 3003,
+                            "5": "Jozy Altidor",
+                            "6": "Moscow",
+                            "7": 200,
+                            "8": 5007
+                        },
+                        {
+                            "0": 5005,
+                            "1": "Pit Alex",
+                            "2": "London",
+                            "3": "0.11",
+                            "4": 3003,
+                            "5": "Jozy Altidor",
+                            "6": "Moscow",
+                            "7": 200,
+                            "8": 5007
+                        },
+                        {
+                            "0": 5003,
+                            "1": "Lauson Hen",
+                            "2": "San Jose",
+                            "3": "0.12",
+                            "4": 3003,
+                            "5": "Jozy Altidor",
+                            "6": "Moscow",
+                            "7": 200,
+                            "8": 5007
+                        },
+                        {
+                            "0": 5002,
+                            "1": "Nail Knite",
+                            "2": "Paris",
+                            "3": "0.13",
+                            "4": 3003,
+                            "5": "Jozy Altidor",
+                            "6": "Moscow",
+                            "7": 200,
+                            "8": 5007
+                        },
+                        {
+                            "0": 5001,
+                            "1": "James Hoog",
+                            "2": "New York",
+                            "3": "0.15",
+                            "4": 3003,
+                            "5": "Jozy Altidor",
+                            "6": "Moscow",
+                            "7": 200,
+                            "8": 5007
+                        },
+                        {
+                            "0": 5007,
+                            "1": "Paul Adam",
+                            "2": "Rome",
+                            "3": "0.13",
+                            "4": 3004,
+                            "5": "Fabian Johnson",
+                            "6": "Paris",
+                            "7": 300,
+                            "8": 5006
+                        },
+                        {
+                            "0": 5006,
+                            "1": "Mc Lyon",
+                            "2": "Paris",
+                            "3": "0.14",
+                            "4": 3004,
+                            "5": "Fabian Johnson",
+                            "6": "Paris",
+                            "7": 300,
+                            "8": 5006
+                        },
+                        {
+                            "0": 5005,
+                            "1": "Pit Alex",
+                            "2": "London",
+                            "3": "0.11",
+                            "4": 3004,
+                            "5": "Fabian Johnson",
+                            "6": "Paris",
+                            "7": 300,
+                            "8": 5006
+                        },
+                        {
+                            "0": 5003,
+                            "1": "Lauson Hen",
+                            "2": "San Jose",
+                            "3": "0.12",
+                            "4": 3004,
+                            "5": "Fabian Johnson",
+                            "6": "Paris",
+                            "7": 300,
+                            "8": 5006
+                        },
+                        {
+                            "0": 5002,
+                            "1": "Nail Knite",
+                            "2": "Paris",
+                            "3": "0.13",
+                            "4": 3004,
+                            "5": "Fabian Johnson",
+                            "6": "Paris",
+                            "7": 300,
+                            "8": 5006
+                        },
+                        {
+                            "0": 5001,
+                            "1": "James Hoog",
+                            "2": "New York",
+                            "3": "0.15",
+                            "4": 3004,
+                            "5": "Fabian Johnson",
+                            "6": "Paris",
+                            "7": 300,
+                            "8": 5006
+                        },
+                        {
+                            "0": 5007,
+                            "1": "Paul Adam",
+                            "2": "Rome",
+                            "3": "0.13",
+                            "4": 3005,
+                            "5": "Graham Zusi",
+                            "6": "California",
+                            "7": 200,
+                            "8": 5002
+                        },
+                        {
+                            "0": 5006,
+                            "1": "Mc Lyon",
+                            "2": "Paris",
+                            "3": "0.14",
+                            "4": 3005,
+                            "5": "Graham Zusi",
+                            "6": "California",
+                            "7": 200,
+                            "8": 5002
+                        },
+                        {
+                            "0": 5005,
+                            "1": "Pit Alex",
+                            "2": "London",
+                            "3": "0.11",
+                            "4": 3005,
+                            "5": "Graham Zusi",
+                            "6": "California",
+                            "7": 200,
+                            "8": 5002
+                        },
+                        {
+                            "0": 5003,
+                            "1": "Lauson Hen",
+                            "2": "San Jose",
+                            "3": "0.12",
+                            "4": 3005,
+                            "5": "Graham Zusi",
+                            "6": "California",
+                            "7": 200,
+                            "8": 5002
+                        },
+                        {
+                            "0": 5002,
+                            "1": "Nail Knite",
+                            "2": "Paris",
+                            "3": "0.13",
+                            "4": 3005,
+                            "5": "Graham Zusi",
+                            "6": "California",
+                            "7": 200,
+                            "8": 5002
+                        },
+                        {
+                            "0": 5001,
+                            "1": "James Hoog",
+                            "2": "New York",
+                            "3": "0.15",
+                            "4": 3005,
+                            "5": "Graham Zusi",
+                            "6": "California",
+                            "7": 200,
+                            "8": 5002
+                        },
+                        {
+                            "0": 5007,
+                            "1": "Paul Adam",
+                            "2": "Rome",
+                            "3": "0.13",
+                            "4": 3007,
+                            "5": "Brad Davis",
+                            "6": "New York",
+                            "7": 200,
+                            "8": 5001
+                        },
+                        {
+                            "0": 5006,
+                            "1": "Mc Lyon",
+                            "2": "Paris",
+                            "3": "0.14",
+                            "4": 3007,
+                            "5": "Brad Davis",
+                            "6": "New York",
+                            "7": 200,
+                            "8": 5001
+                        },
+                        {
+                            "0": 5005,
+                            "1": "Pit Alex",
+                            "2": "London",
+                            "3": "0.11",
+                            "4": 3007,
+                            "5": "Brad Davis",
+                            "6": "New York",
+                            "7": 200,
+                            "8": 5001
+                        },
+                        {
+                            "0": 5003,
+                            "1": "Lauson Hen",
+                            "2": "San Jose",
+                            "3": "0.12",
+                            "4": 3007,
+                            "5": "Brad Davis",
+                            "6": "New York",
+                            "7": 200,
+                            "8": 5001
+                        },
+                        {
+                            "0": 5002,
+                            "1": "Nail Knite",
+                            "2": "Paris",
+                            "3": "0.13",
+                            "4": 3007,
+                            "5": "Brad Davis",
+                            "6": "New York",
+                            "7": 200,
+                            "8": 5001
+                        },
+                        {
+                            "0": 5001,
+                            "1": "James Hoog",
+                            "2": "New York",
+                            "3": "0.15",
+                            "4": 3007,
+                            "5": "Brad Davis",
+                            "6": "New York",
+                            "7": 200,
+                            "8": 5001
+                        },
+                        {
+                            "0": 5007,
+                            "1": "Paul Adam",
+                            "2": "Rome",
+                            "3": "0.13",
+                            "4": 3008,
+                            "5": "Julian Green",
+                            "6": "London",
+                            "7": 300,
+                            "8": 5002
+                        },
+                        {
+                            "0": 5006,
+                            "1": "Mc Lyon",
+                            "2": "Paris",
+                            "3": "0.14",
+                            "4": 3008,
+                            "5": "Julian Green",
+                            "6": "London",
+                            "7": 300,
+                            "8": 5002
+                        },
+                        {
+                            "0": 5005,
+                            "1": "Pit Alex",
+                            "2": "London",
+                            "3": "0.11",
+                            "4": 3008,
+                            "5": "Julian Green",
+                            "6": "London",
+                            "7": 300,
+                            "8": 5002
+                        },
+                        {
+                            "0": 5003,
+                            "1": "Lauson Hen",
+                            "2": "San Jose",
+                            "3": "0.12",
+                            "4": 3008,
+                            "5": "Julian Green",
+                            "6": "London",
+                            "7": 300,
+                            "8": 5002
+                        },
+                        {
+                            "0": 5002,
+                            "1": "Nail Knite",
+                            "2": "Paris",
+                            "3": "0.13",
+                            "4": 3008,
+                            "5": "Julian Green",
+                            "6": "London",
+                            "7": 300,
+                            "8": 5002
+                        },
+                        {
+                            "0": 5001,
+                            "1": "James Hoog",
+                            "2": "New York",
+                            "3": "0.15",
+                            "4": 3008,
+                            "5": "Julian Green",
+                            "6": "London",
+                            "7": 300,
+                            "8": 5002
+                        },
+                        {
+                            "0": 5007,
+                            "1": "Paul Adam",
+                            "2": "Rome",
+                            "3": "0.13",
+                            "4": 3009,
+                            "5": "Geoff Cameron",
+                            "6": "Berlin",
+                            "7": 100,
+                            "8": 5003
+                        },
+                        {
+                            "0": 5006,
+                            "1": "Mc Lyon",
+                            "2": "Paris",
+                            "3": "0.14",
+                            "4": 3009,
+                            "5": "Geoff Cameron",
+                            "6": "Berlin",
+                            "7": 100,
+                            "8": 5003
+                        },
+                        {
+                            "0": 5005,
+                            "1": "Pit Alex",
+                            "2": "London",
+                            "3": "0.11",
+                            "4": 3009,
+                            "5": "Geoff Cameron",
+                            "6": "Berlin",
+                            "7": 100,
+                            "8": 5003
+                        },
+                        {
+                            "0": 5003,
+                            "1": "Lauson Hen",
+                            "2": "San Jose",
+                            "3": "0.12",
+                            "4": 3009,
+                            "5": "Geoff Cameron",
+                            "6": "Berlin",
+                            "7": 100,
+                            "8": 5003
+                        },
+                        {
+                            "0": 5002,
+                            "1": "Nail Knite",
+                            "2": "Paris",
+                            "3": "0.13",
+                            "4": 3009,
+                            "5": "Geoff Cameron",
+                            "6": "Berlin",
+                            "7": 100,
+                            "8": 5003
+                        },
+                        {
+                            "0": 5001,
+                            "1": "James Hoog",
+                            "2": "New York",
+                            "3": "0.15",
+                            "4": 3009,
+                            "5": "Geoff Cameron",
+                            "6": "Berlin",
+                            "7": 100,
+                            "8": 5003
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "salesman_id",
+                            "field": "0",
+                            "dataType": {
+                                "type": 4
+                            }
+                        },
+                        {
+                            "title": "name",
+                            "field": "1",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "city",
+                            "field": "2",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "commission",
+                            "field": "3",
+                            "dataType": {
+                                "type": 10
+                            }
+                        },
+                        {
+                            "title": "customer_id",
+                            "field": "4",
+                            "dataType": {
+                                "type": 4
+                            }
+                        },
+                        {
+                            "title": "cust_name",
+                            "field": "5",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "city",
+                            "field": "6",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "grade",
+                            "field": "7",
+                            "dataType": {
+                                "type": 4
+                            }
+                        },
+                        {
+                            "title": "salesman_id",
+                            "field": "8",
+                            "dataType": {
+                                "type": 4
+                            }
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 48 records retrieved in 2.084ms"
+                    },
+                    "totalRowCount": 48,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SELECT * FROM\nsalesmen,customers"
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 25,
+                "end": 26,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "31ef5d6d-cb5d-4c0b-cf8c-63f76b557ab8"
+                    ]
+                },
+                "currentHeight": 352,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 34
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "95bb2dea-53c3-42cf-f8e8-0f13d22a6283",
+                    "resultId": "31ef5d6d-cb5d-4c0b-cf8c-63f76b557ab8",
+                    "rows": [
+                        {
+                            "0": 5007,
+                            "1": "Paul Adam",
+                            "2": "Rome",
+                            "3": "0.13",
+                            "4": 3001,
+                            "5": "Brad Guzan",
+                            "6": "London",
+                            "7": null,
+                            "8": 5005
+                        },
+                        {
+                            "0": 5006,
+                            "1": "Mc Lyon",
+                            "2": "Paris",
+                            "3": "0.14",
+                            "4": 3001,
+                            "5": "Brad Guzan",
+                            "6": "London",
+                            "7": null,
+                            "8": 5005
+                        },
+                        {
+                            "0": 5005,
+                            "1": "Pit Alex",
+                            "2": "London",
+                            "3": "0.11",
+                            "4": 3001,
+                            "5": "Brad Guzan",
+                            "6": "London",
+                            "7": null,
+                            "8": 5005
+                        },
+                        {
+                            "0": 5003,
+                            "1": "Lauson Hen",
+                            "2": "San Jose",
+                            "3": "0.12",
+                            "4": 3001,
+                            "5": "Brad Guzan",
+                            "6": "London",
+                            "7": null,
+                            "8": 5005
+                        },
+                        {
+                            "0": 5002,
+                            "1": "Nail Knite",
+                            "2": "Paris",
+                            "3": "0.13",
+                            "4": 3001,
+                            "5": "Brad Guzan",
+                            "6": "London",
+                            "7": null,
+                            "8": 5005
+                        },
+                        {
+                            "0": 5001,
+                            "1": "James Hoog",
+                            "2": "New York",
+                            "3": "0.15",
+                            "4": 3001,
+                            "5": "Brad Guzan",
+                            "6": "London",
+                            "7": null,
+                            "8": 5005
+                        },
+                        {
+                            "0": 5007,
+                            "1": "Paul Adam",
+                            "2": "Rome",
+                            "3": "0.13",
+                            "4": 3002,
+                            "5": "Nick Rimando",
+                            "6": "New York",
+                            "7": 100,
+                            "8": 5001
+                        },
+                        {
+                            "0": 5006,
+                            "1": "Mc Lyon",
+                            "2": "Paris",
+                            "3": "0.14",
+                            "4": 3002,
+                            "5": "Nick Rimando",
+                            "6": "New York",
+                            "7": 100,
+                            "8": 5001
+                        },
+                        {
+                            "0": 5005,
+                            "1": "Pit Alex",
+                            "2": "London",
+                            "3": "0.11",
+                            "4": 3002,
+                            "5": "Nick Rimando",
+                            "6": "New York",
+                            "7": 100,
+                            "8": 5001
+                        },
+                        {
+                            "0": 5003,
+                            "1": "Lauson Hen",
+                            "2": "San Jose",
+                            "3": "0.12",
+                            "4": 3002,
+                            "5": "Nick Rimando",
+                            "6": "New York",
+                            "7": 100,
+                            "8": 5001
+                        },
+                        {
+                            "0": 5002,
+                            "1": "Nail Knite",
+                            "2": "Paris",
+                            "3": "0.13",
+                            "4": 3002,
+                            "5": "Nick Rimando",
+                            "6": "New York",
+                            "7": 100,
+                            "8": 5001
+                        },
+                        {
+                            "0": 5001,
+                            "1": "James Hoog",
+                            "2": "New York",
+                            "3": "0.15",
+                            "4": 3002,
+                            "5": "Nick Rimando",
+                            "6": "New York",
+                            "7": 100,
+                            "8": 5001
+                        },
+                        {
+                            "0": 5007,
+                            "1": "Paul Adam",
+                            "2": "Rome",
+                            "3": "0.13",
+                            "4": 3003,
+                            "5": "Jozy Altidor",
+                            "6": "Moscow",
+                            "7": 200,
+                            "8": 5007
+                        },
+                        {
+                            "0": 5006,
+                            "1": "Mc Lyon",
+                            "2": "Paris",
+                            "3": "0.14",
+                            "4": 3003,
+                            "5": "Jozy Altidor",
+                            "6": "Moscow",
+                            "7": 200,
+                            "8": 5007
+                        },
+                        {
+                            "0": 5005,
+                            "1": "Pit Alex",
+                            "2": "London",
+                            "3": "0.11",
+                            "4": 3003,
+                            "5": "Jozy Altidor",
+                            "6": "Moscow",
+                            "7": 200,
+                            "8": 5007
+                        },
+                        {
+                            "0": 5003,
+                            "1": "Lauson Hen",
+                            "2": "San Jose",
+                            "3": "0.12",
+                            "4": 3003,
+                            "5": "Jozy Altidor",
+                            "6": "Moscow",
+                            "7": 200,
+                            "8": 5007
+                        },
+                        {
+                            "0": 5002,
+                            "1": "Nail Knite",
+                            "2": "Paris",
+                            "3": "0.13",
+                            "4": 3003,
+                            "5": "Jozy Altidor",
+                            "6": "Moscow",
+                            "7": 200,
+                            "8": 5007
+                        },
+                        {
+                            "0": 5001,
+                            "1": "James Hoog",
+                            "2": "New York",
+                            "3": "0.15",
+                            "4": 3003,
+                            "5": "Jozy Altidor",
+                            "6": "Moscow",
+                            "7": 200,
+                            "8": 5007
+                        },
+                        {
+                            "0": 5007,
+                            "1": "Paul Adam",
+                            "2": "Rome",
+                            "3": "0.13",
+                            "4": 3004,
+                            "5": "Fabian Johnson",
+                            "6": "Paris",
+                            "7": 300,
+                            "8": 5006
+                        },
+                        {
+                            "0": 5006,
+                            "1": "Mc Lyon",
+                            "2": "Paris",
+                            "3": "0.14",
+                            "4": 3004,
+                            "5": "Fabian Johnson",
+                            "6": "Paris",
+                            "7": 300,
+                            "8": 5006
+                        },
+                        {
+                            "0": 5005,
+                            "1": "Pit Alex",
+                            "2": "London",
+                            "3": "0.11",
+                            "4": 3004,
+                            "5": "Fabian Johnson",
+                            "6": "Paris",
+                            "7": 300,
+                            "8": 5006
+                        },
+                        {
+                            "0": 5003,
+                            "1": "Lauson Hen",
+                            "2": "San Jose",
+                            "3": "0.12",
+                            "4": 3004,
+                            "5": "Fabian Johnson",
+                            "6": "Paris",
+                            "7": 300,
+                            "8": 5006
+                        },
+                        {
+                            "0": 5002,
+                            "1": "Nail Knite",
+                            "2": "Paris",
+                            "3": "0.13",
+                            "4": 3004,
+                            "5": "Fabian Johnson",
+                            "6": "Paris",
+                            "7": 300,
+                            "8": 5006
+                        },
+                        {
+                            "0": 5001,
+                            "1": "James Hoog",
+                            "2": "New York",
+                            "3": "0.15",
+                            "4": 3004,
+                            "5": "Fabian Johnson",
+                            "6": "Paris",
+                            "7": 300,
+                            "8": 5006
+                        },
+                        {
+                            "0": 5007,
+                            "1": "Paul Adam",
+                            "2": "Rome",
+                            "3": "0.13",
+                            "4": 3005,
+                            "5": "Graham Zusi",
+                            "6": "California",
+                            "7": 200,
+                            "8": 5002
+                        },
+                        {
+                            "0": 5006,
+                            "1": "Mc Lyon",
+                            "2": "Paris",
+                            "3": "0.14",
+                            "4": 3005,
+                            "5": "Graham Zusi",
+                            "6": "California",
+                            "7": 200,
+                            "8": 5002
+                        },
+                        {
+                            "0": 5005,
+                            "1": "Pit Alex",
+                            "2": "London",
+                            "3": "0.11",
+                            "4": 3005,
+                            "5": "Graham Zusi",
+                            "6": "California",
+                            "7": 200,
+                            "8": 5002
+                        },
+                        {
+                            "0": 5003,
+                            "1": "Lauson Hen",
+                            "2": "San Jose",
+                            "3": "0.12",
+                            "4": 3005,
+                            "5": "Graham Zusi",
+                            "6": "California",
+                            "7": 200,
+                            "8": 5002
+                        },
+                        {
+                            "0": 5002,
+                            "1": "Nail Knite",
+                            "2": "Paris",
+                            "3": "0.13",
+                            "4": 3005,
+                            "5": "Graham Zusi",
+                            "6": "California",
+                            "7": 200,
+                            "8": 5002
+                        },
+                        {
+                            "0": 5001,
+                            "1": "James Hoog",
+                            "2": "New York",
+                            "3": "0.15",
+                            "4": 3005,
+                            "5": "Graham Zusi",
+                            "6": "California",
+                            "7": 200,
+                            "8": 5002
+                        },
+                        {
+                            "0": 5007,
+                            "1": "Paul Adam",
+                            "2": "Rome",
+                            "3": "0.13",
+                            "4": 3007,
+                            "5": "Brad Davis",
+                            "6": "New York",
+                            "7": 200,
+                            "8": 5001
+                        },
+                        {
+                            "0": 5006,
+                            "1": "Mc Lyon",
+                            "2": "Paris",
+                            "3": "0.14",
+                            "4": 3007,
+                            "5": "Brad Davis",
+                            "6": "New York",
+                            "7": 200,
+                            "8": 5001
+                        },
+                        {
+                            "0": 5005,
+                            "1": "Pit Alex",
+                            "2": "London",
+                            "3": "0.11",
+                            "4": 3007,
+                            "5": "Brad Davis",
+                            "6": "New York",
+                            "7": 200,
+                            "8": 5001
+                        },
+                        {
+                            "0": 5003,
+                            "1": "Lauson Hen",
+                            "2": "San Jose",
+                            "3": "0.12",
+                            "4": 3007,
+                            "5": "Brad Davis",
+                            "6": "New York",
+                            "7": 200,
+                            "8": 5001
+                        },
+                        {
+                            "0": 5002,
+                            "1": "Nail Knite",
+                            "2": "Paris",
+                            "3": "0.13",
+                            "4": 3007,
+                            "5": "Brad Davis",
+                            "6": "New York",
+                            "7": 200,
+                            "8": 5001
+                        },
+                        {
+                            "0": 5001,
+                            "1": "James Hoog",
+                            "2": "New York",
+                            "3": "0.15",
+                            "4": 3007,
+                            "5": "Brad Davis",
+                            "6": "New York",
+                            "7": 200,
+                            "8": 5001
+                        },
+                        {
+                            "0": 5007,
+                            "1": "Paul Adam",
+                            "2": "Rome",
+                            "3": "0.13",
+                            "4": 3008,
+                            "5": "Julian Green",
+                            "6": "London",
+                            "7": 300,
+                            "8": 5002
+                        },
+                        {
+                            "0": 5006,
+                            "1": "Mc Lyon",
+                            "2": "Paris",
+                            "3": "0.14",
+                            "4": 3008,
+                            "5": "Julian Green",
+                            "6": "London",
+                            "7": 300,
+                            "8": 5002
+                        },
+                        {
+                            "0": 5005,
+                            "1": "Pit Alex",
+                            "2": "London",
+                            "3": "0.11",
+                            "4": 3008,
+                            "5": "Julian Green",
+                            "6": "London",
+                            "7": 300,
+                            "8": 5002
+                        },
+                        {
+                            "0": 5003,
+                            "1": "Lauson Hen",
+                            "2": "San Jose",
+                            "3": "0.12",
+                            "4": 3008,
+                            "5": "Julian Green",
+                            "6": "London",
+                            "7": 300,
+                            "8": 5002
+                        },
+                        {
+                            "0": 5002,
+                            "1": "Nail Knite",
+                            "2": "Paris",
+                            "3": "0.13",
+                            "4": 3008,
+                            "5": "Julian Green",
+                            "6": "London",
+                            "7": 300,
+                            "8": 5002
+                        },
+                        {
+                            "0": 5001,
+                            "1": "James Hoog",
+                            "2": "New York",
+                            "3": "0.15",
+                            "4": 3008,
+                            "5": "Julian Green",
+                            "6": "London",
+                            "7": 300,
+                            "8": 5002
+                        },
+                        {
+                            "0": 5007,
+                            "1": "Paul Adam",
+                            "2": "Rome",
+                            "3": "0.13",
+                            "4": 3009,
+                            "5": "Geoff Cameron",
+                            "6": "Berlin",
+                            "7": 100,
+                            "8": 5003
+                        },
+                        {
+                            "0": 5006,
+                            "1": "Mc Lyon",
+                            "2": "Paris",
+                            "3": "0.14",
+                            "4": 3009,
+                            "5": "Geoff Cameron",
+                            "6": "Berlin",
+                            "7": 100,
+                            "8": 5003
+                        },
+                        {
+                            "0": 5005,
+                            "1": "Pit Alex",
+                            "2": "London",
+                            "3": "0.11",
+                            "4": 3009,
+                            "5": "Geoff Cameron",
+                            "6": "Berlin",
+                            "7": 100,
+                            "8": 5003
+                        },
+                        {
+                            "0": 5003,
+                            "1": "Lauson Hen",
+                            "2": "San Jose",
+                            "3": "0.12",
+                            "4": 3009,
+                            "5": "Geoff Cameron",
+                            "6": "Berlin",
+                            "7": 100,
+                            "8": 5003
+                        },
+                        {
+                            "0": 5002,
+                            "1": "Nail Knite",
+                            "2": "Paris",
+                            "3": "0.13",
+                            "4": 3009,
+                            "5": "Geoff Cameron",
+                            "6": "Berlin",
+                            "7": 100,
+                            "8": 5003
+                        },
+                        {
+                            "0": 5001,
+                            "1": "James Hoog",
+                            "2": "New York",
+                            "3": "0.15",
+                            "4": 3009,
+                            "5": "Geoff Cameron",
+                            "6": "Berlin",
+                            "7": 100,
+                            "8": 5003
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "salesman_id",
+                            "field": "0",
+                            "dataType": {
+                                "type": 4
+                            }
+                        },
+                        {
+                            "title": "name",
+                            "field": "1",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "city",
+                            "field": "2",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "commission",
+                            "field": "3",
+                            "dataType": {
+                                "type": 10
+                            }
+                        },
+                        {
+                            "title": "customer_id",
+                            "field": "4",
+                            "dataType": {
+                                "type": 4
+                            }
+                        },
+                        {
+                            "title": "cust_name",
+                            "field": "5",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "city",
+                            "field": "6",
+                            "dataType": {
+                                "type": 17
+                            }
+                        },
+                        {
+                            "title": "grade",
+                            "field": "7",
+                            "dataType": {
+                                "type": 4
+                            }
+                        },
+                        {
+                            "title": "salesman_id",
+                            "field": "8",
+                            "dataType": {
+                                "type": 4
+                            }
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 48 records retrieved in 1.317ms"
+                    },
+                    "totalRowCount": 48,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SELECT * FROM\nsalesmen, customers"
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 27,
+                "end": 30,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 0,
+                            "index": 0,
+                            "content": "MySQL Error (1060): ClassicSession.run_sql: Duplicate column name 'city'",
+                            "language": "ansi"
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": ""
+                    }
+                },
+                "currentHeight": 28,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 57
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 57,
+                            "length": 1
+                        },
+                        "contentStart": 56,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 31,
+                "end": 31,
                 "language": "mysql",
                 "currentHeight": 180,
                 "statements": [
