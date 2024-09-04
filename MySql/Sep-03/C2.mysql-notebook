@@ -1,0 +1,1183 @@
+{
+    "type": "MySQLNotebook",
+    "version": "1.0",
+    "caption": "DB Notebook",
+    "content": "\\about\nshow DATABASES;\nuse dbms;\nSHOW TABLES;\nDESC employee;\ndrop TABLE employee;\ndrop TABLE Department;\nCREATE TABLE Employee (\n    Empno int NOT NULL PRIMARY KEY,\n    Ename VARCHAR(30) NOT NULL,\n    Job CHAR(12) NOT NULL,\n    Manager int,\n    Hiredate DATE,\n    Salary DECIMAL(8,2),\n    Commission DECIMAL(6,2),\n    Deptno int\n);\ndesc employee;\nCREATE TABLE Department(\n    Deptno int Not NULL,\n    Dname VARCHAR(12),\n    Location VARCHAR(30)\n);\nCREATE TABLE Salgrade(\n    Grade int PRIMARY KEY,\n    Hisal int(5),\n    Losal int(5)\n);\nInsert INTO Employee Values(101,\"Chris\",\"PRESIDENT\",NULL,'1991-11-18',25000.00,NULL,1001);\nINSERT INTO Department VALUES(1001,'FINANCE','FLORIDA');\nINSERT INTO Department VALUES(1002,'AUDIT','CALIORNIA');\nINSERT INTO Department VALUES(1003,'MARKETINT','BOSTON');\nSELECT * from Department;\nInsert INTO Employee Values (102,\"Dave\",\"Manager\",101,'1991-11-18',15000.00,NULL,2001);\nInsert INTO Employee Values (103,\"Harry\",\"Manager\",101,'1992-01-18',15000.00,NULL,3001);\nInsert INTO Employee Values (104,\"John\",\"Analyst\",102,'1992-01-18',10000.00,NULL,2001);\nInsert INTO Employee Values (105,\"John\",\"Analyst\",102,'1992-01-18',10000.00,NULL,2001);\n",
+    "options": {
+        "tabSize": 4,
+        "indentSize": 4,
+        "insertSpaces": true,
+        "defaultEOL": "LF",
+        "trimAutoWhitespace": true
+    },
+    "viewState": {
+        "cursorState": [
+            {
+                "inSelectionMode": false,
+                "selectionStart": {
+                    "lineNumber": 37,
+                    "column": 88
+                },
+                "position": {
+                    "lineNumber": 37,
+                    "column": 88
+                }
+            }
+        ],
+        "viewState": {
+            "scrollLeft": 0,
+            "firstPosition": {
+                "lineNumber": 28,
+                "column": 1
+            },
+            "firstPositionDeltaTop": -20
+        },
+        "contributionsState": {
+            "editor.contrib.folding": {},
+            "editor.contrib.wordHighlighter": false
+        }
+    },
+    "contexts": [
+        {
+            "state": {
+                "start": 1,
+                "end": 1,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 2,
+                            "content": "Welcome to the MySQL Shell - DB Notebook.\n\nPress Cmd+Enter to execute the code block.\n\nExecute \\sql to switch to SQL, \\js to JavaScript and \\ts to TypeScript mode.\nExecute \\help or \\? for help;",
+                            "language": "ansi"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 6
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 2,
+                "end": 2,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "80c6d2a4-cbaa-4fb7-abd7-f57a2b461c0e"
+                    ]
+                },
+                "currentHeight": 36,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 15
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 15,
+                            "length": 0
+                        },
+                        "contentStart": 15,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "2ac474fe-7729-4ae4-a7d2-06ebf7e9915b",
+                    "resultId": "80c6d2a4-cbaa-4fb7-abd7-f57a2b461c0e",
+                    "rows": [
+                        {
+                            "0": "CP"
+                        },
+                        {
+                            "0": "DBMS"
+                        },
+                        {
+                            "0": "information_schema"
+                        },
+                        {
+                            "0": "mysql"
+                        },
+                        {
+                            "0": "performance_schema"
+                        },
+                        {
+                            "0": "SQL_Project"
+                        },
+                        {
+                            "0": "sys"
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "Database",
+                            "field": "0",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 7 records retrieved in 2.728ms"
+                    },
+                    "totalRowCount": 7,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "show DATABASES",
+                    "updatable": false
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 3,
+                "end": 3,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 4,
+                            "index": 0,
+                            "resultId": "7e90d0ab-b1ab-4a70-e2d7-2ae3fd6d7865",
+                            "content": "OK, 0 records retrieved in 1.348ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 9
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 4,
+                "end": 4,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "83858b08-b5c4-4525-89c9-79e6d49ee632"
+                    ]
+                },
+                "currentHeight": 36,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 12
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "2ac474fe-7729-4ae4-a7d2-06ebf7e9915b",
+                    "resultId": "83858b08-b5c4-4525-89c9-79e6d49ee632",
+                    "rows": [
+                        {
+                            "0": "customers"
+                        },
+                        {
+                            "0": "Department"
+                        },
+                        {
+                            "0": "EMPLOYEE"
+                        },
+                        {
+                            "0": "Employee_Details"
+                        },
+                        {
+                            "0": "nobel_win"
+                        },
+                        {
+                            "0": "orders"
+                        },
+                        {
+                            "0": "Persons"
+                        },
+                        {
+                            "0": "RAW_DATABASE"
+                        },
+                        {
+                            "0": "salesmen"
+                        },
+                        {
+                            "0": "w3r_q15"
+                        },
+                        {
+                            "0": "w3r_q16"
+                        },
+                        {
+                            "0": "Weekly_Time_Sheet"
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "Tables_in_dbms",
+                            "field": "0",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 12 records retrieved in 2.376ms"
+                    },
+                    "totalRowCount": 12,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SHOW TABLES",
+                    "updatable": false
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 5,
+                "end": 5,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "e6c6e2e1-0796-4751-eb87-28cb1aeb5d1b"
+                    ]
+                },
+                "currentHeight": 36,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 14
+                        },
+                        "contentStart": 1,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "2ac474fe-7729-4ae4-a7d2-06ebf7e9915b",
+                    "resultId": "e6c6e2e1-0796-4751-eb87-28cb1aeb5d1b",
+                    "rows": [
+                        {
+                            "0": "Name",
+                            "1": "varchar(20)",
+                            "2": "YES",
+                            "3": "",
+                            "4": null,
+                            "5": ""
+                        },
+                        {
+                            "0": "Email",
+                            "1": "varchar(100)",
+                            "2": "YES",
+                            "3": "",
+                            "4": null,
+                            "5": ""
+                        },
+                        {
+                            "0": "DOB",
+                            "1": "date",
+                            "2": "YES",
+                            "3": "",
+                            "4": null,
+                            "5": ""
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "Field",
+                            "field": "0",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false
+                        },
+                        {
+                            "title": "Type",
+                            "field": "1",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false
+                        },
+                        {
+                            "title": "Null",
+                            "field": "2",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false
+                        },
+                        {
+                            "title": "Key",
+                            "field": "3",
+                            "dataType": {
+                                "type": 43,
+                                "needsQuotes": true
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false
+                        },
+                        {
+                            "title": "Default",
+                            "field": "4",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false
+                        },
+                        {
+                            "title": "Extra",
+                            "field": "5",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 3 records retrieved in 10.992ms"
+                    },
+                    "totalRowCount": 3,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "DESC employee",
+                    "updatable": false
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 6,
+                "end": 7,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 4,
+                            "index": 0,
+                            "resultId": "ae669f34-dc37-4168-cd6c-1a6011ab4943",
+                            "content": "OK, 0 records retrieved in 4.345ms"
+                        },
+                        {
+                            "type": 4,
+                            "index": 1,
+                            "resultId": "1921a6be-515c-4632-cefe-d4ee51ed7033",
+                            "content": "OK, 0 records retrieved in 21.631ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 20
+                        },
+                        "contentStart": 1,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 20,
+                            "length": 23
+                        },
+                        "contentStart": 22,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 43,
+                            "length": 0
+                        },
+                        "contentStart": 42,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 8,
+                "end": 17,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 4,
+                            "index": 0,
+                            "resultId": "45229a5e-479e-43a3-ec53-bb52b9ce8224",
+                            "content": "OK, 0 records retrieved in 8.397ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 226
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 18,
+                "end": 18,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "33c4cc04-0cc5-4966-deff-ceb2eb921359"
+                    ]
+                },
+                "currentHeight": 36,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 14
+                        },
+                        "contentStart": 1,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "2ac474fe-7729-4ae4-a7d2-06ebf7e9915b",
+                    "resultId": "33c4cc04-0cc5-4966-deff-ceb2eb921359",
+                    "rows": [
+                        {
+                            "0": "Empno",
+                            "1": "int",
+                            "2": "NO",
+                            "3": "PRI",
+                            "4": null,
+                            "5": ""
+                        },
+                        {
+                            "0": "Ename",
+                            "1": "varchar(30)",
+                            "2": "NO",
+                            "3": "",
+                            "4": null,
+                            "5": ""
+                        },
+                        {
+                            "0": "Job",
+                            "1": "char(12)",
+                            "2": "NO",
+                            "3": "",
+                            "4": null,
+                            "5": ""
+                        },
+                        {
+                            "0": "Manager",
+                            "1": "int",
+                            "2": "YES",
+                            "3": "",
+                            "4": null,
+                            "5": ""
+                        },
+                        {
+                            "0": "Hiredate",
+                            "1": "date",
+                            "2": "YES",
+                            "3": "",
+                            "4": null,
+                            "5": ""
+                        },
+                        {
+                            "0": "Salary",
+                            "1": "decimal(8,2)",
+                            "2": "YES",
+                            "3": "",
+                            "4": null,
+                            "5": ""
+                        },
+                        {
+                            "0": "Commission",
+                            "1": "decimal(6,2)",
+                            "2": "YES",
+                            "3": "",
+                            "4": null,
+                            "5": ""
+                        },
+                        {
+                            "0": "Deptno",
+                            "1": "int",
+                            "2": "YES",
+                            "3": "MUL",
+                            "4": null,
+                            "5": ""
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "Field",
+                            "field": "0",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false
+                        },
+                        {
+                            "title": "Type",
+                            "field": "1",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false
+                        },
+                        {
+                            "title": "Null",
+                            "field": "2",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false
+                        },
+                        {
+                            "title": "Key",
+                            "field": "3",
+                            "dataType": {
+                                "type": 43,
+                                "needsQuotes": true
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false
+                        },
+                        {
+                            "title": "Default",
+                            "field": "4",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false
+                        },
+                        {
+                            "title": "Extra",
+                            "field": "5",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 8 records retrieved in 2.879ms"
+                    },
+                    "totalRowCount": 8,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "desc employee",
+                    "updatable": false
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 19,
+                "end": 23,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 4,
+                            "index": 0,
+                            "resultId": "0c5ed312-2f74-440d-910e-bb2e9b2a69f3",
+                            "content": "OK, 0 records retrieved in 6.578ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 100
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 24,
+                "end": 28,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 4,
+                            "index": 0,
+                            "resultId": "96df3d59-d0c9-4751-a9d7-4356e2bdcc7f",
+                            "content": "OK, 0 records retrieved in 5.297ms"
+                        },
+                        {
+                            "type": 4,
+                            "index": 1,
+                            "resultId": "207fe8cf-fe3c-480c-f791-c1ead1ef3a7c",
+                            "content": "OK, 0 records retrieved in 6.045ms"
+                        }
+                    ]
+                },
+                "currentHeight": 40,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 87
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 87,
+                            "length": 0
+                        },
+                        "contentStart": 86,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 29,
+                "end": 29,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 4,
+                            "index": 0,
+                            "resultId": "3847ecc5-0ef4-4570-e1ea-8b9cd31bfbce",
+                            "content": "OK, 1 row affected in 1.816ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 90
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 30,
+                "end": 30,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 4,
+                            "index": 0,
+                            "resultId": "bf55d18c-8063-4a1a-8cd6-ea89b7a14818",
+                            "content": "OK, 1 row affected in 4.407ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 56
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 56,
+                            "length": 0
+                        },
+                        "contentStart": 55,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 31,
+                "end": 32,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 4,
+                            "index": 0,
+                            "resultId": "2c75cfc1-b26c-4f76-9da2-94712316fc7b",
+                            "content": "OK, 1 row affected in 1.947ms"
+                        },
+                        {
+                            "type": 4,
+                            "index": 1,
+                            "resultId": "9ecc33f9-09bb-4ca9-c6c3-763e067dc536",
+                            "content": "OK, 1 row affected in 0.966ms"
+                        }
+                    ]
+                },
+                "currentHeight": 40,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 56
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 56,
+                            "length": 58
+                        },
+                        "contentStart": 57,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 33,
+                "end": 33,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "612b8853-c32f-4d81-e258-4ad62d4568a0"
+                    ]
+                },
+                "currentHeight": 130,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 25
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "2ac474fe-7729-4ae4-a7d2-06ebf7e9915b",
+                    "resultId": "612b8853-c32f-4d81-e258-4ad62d4568a0",
+                    "rows": [
+                        {
+                            "0": 1001,
+                            "1": "FINANCE",
+                            "2": "FLORIDA"
+                        },
+                        {
+                            "0": 1002,
+                            "1": "AUDIT",
+                            "2": "CALIORNIA"
+                        },
+                        {
+                            "0": 1003,
+                            "1": "MARKETINT",
+                            "2": "BOSTON"
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "Deptno",
+                            "field": "0",
+                            "dataType": {
+                                "type": 4,
+                                "flags": [
+                                    "SIGNED",
+                                    "ZEROFILL"
+                                ],
+                                "numericPrecision": 10,
+                                "parameterFormatType": "OneOrZero",
+                                "synonyms": [
+                                    "INTEGER",
+                                    "INT4"
+                                ]
+                            },
+                            "inPK": true,
+                            "nullable": false,
+                            "autoIncrement": false
+                        },
+                        {
+                            "title": "Dname",
+                            "field": "1",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "Location",
+                            "field": "2",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 3 records retrieved in 0.94ms"
+                    },
+                    "totalRowCount": 3,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SELECT * from Department",
+                    "updatable": true,
+                    "fullTableName": "Department"
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 34,
+                "end": 37,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 0,
+                            "index": 0,
+                            "content": "MySQL Error (1452): ClassicSession.run_sql: Cannot add or update a child row: a foreign key constraint fails (`dbms`.`employee`, CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`Deptno`) REFERENCES `department` (`Deptno`))",
+                            "language": "ansi"
+                        },
+                        {
+                            "type": 0,
+                            "index": 1,
+                            "content": "MySQL Error (1452): ClassicSession.run_sql: Cannot add or update a child row: a foreign key constraint fails (`dbms`.`employee`, CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`Deptno`) REFERENCES `department` (`Deptno`))",
+                            "language": "ansi"
+                        },
+                        {
+                            "type": 0,
+                            "index": 2,
+                            "content": "MySQL Error (1452): ClassicSession.run_sql: Cannot add or update a child row: a foreign key constraint fails (`dbms`.`employee`, CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`Deptno`) REFERENCES `department` (`Deptno`))",
+                            "language": "ansi"
+                        },
+                        {
+                            "type": 0,
+                            "index": 3,
+                            "content": "MySQL Error (1452): ClassicSession.run_sql: Cannot add or update a child row: a foreign key constraint fails (`dbms`.`employee`, CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`Deptno`) REFERENCES `department` (`Deptno`))",
+                            "language": "ansi"
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": ""
+                    }
+                },
+                "currentHeight": 136,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 87
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 87,
+                            "length": 89
+                        },
+                        "contentStart": 88,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 176,
+                            "length": 88
+                        },
+                        "contentStart": 177,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 264,
+                            "length": 88
+                        },
+                        "contentStart": 265,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 38,
+                "end": 38,
+                "language": "mysql",
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 0
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        }
+    ]
+}
