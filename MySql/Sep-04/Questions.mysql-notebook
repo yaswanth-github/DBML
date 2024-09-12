@@ -2,7 +2,7 @@
     "type": "MySQLNotebook",
     "version": "1.0",
     "caption": "DB Notebook",
-    "content": "\\about\nuse dbms;\nshow tables;\nselect * from customers;\nshow databases;\nuse CP;\nshow TABLES;\nuse mysql;\nshow tables;\nuse mysql;\nCREATE TABLE Customers(\n    Name VARCHAR(20),\n    Address VARCHAR(100),\n    Email VARCHAR(15)\n);\nCREATE TABLE item (\nname VARCHAR(20) PRIMARY KEY,\nprice INT\n);\n\nCREATE TABLE Orders(\nOrdNo INT PRIMARY KEY\n);\n\nCREATE TABLE creditCard(\ncardNo VARCHAR(12) PRIMARY KEY,\nverifies BOOL\n);\n\n",
+    "content": "\\about\nuse dbms;\nshow tables;\nselect * from customers;\nshow databases;\nuse CP;\nshow TABLES;\nuse mysql;\nshow tables;\nuse mysql;\nCREATE TABLE Customers(\n    Name VARCHAR(20),\n    Address VARCHAR(100),\n    Email VARCHAR(15)\n);\nCREATE TABLE item (\nname VARCHAR(20) PRIMARY KEY,\nprice INT\n);\n\nCREATE TABLE Orders(\nOrdNo INT PRIMARY KEY\n);\n\nCREATE TABLE creditCard(\ncardNo VARCHAR(12) PRIMARY KEY,\nverifies BOOL\n);\n\ncreate table train(\ntrain_number INT,\ntrain_name varchar(20),\nsource varchar(20),\ndestination varchar(20),\nstart_time varchar(20),\nreach_time varchar(20),\ntraveltime float,\ndistance float,\nclass varchar(32),\ndays varchar(32),\ntype varchar(32)\n);\ncreate table ticket(\npnrNo int,\ntransactionId varchar(10),\nfrom_station varchar(30),\nto_station varchar(30),\ndate_of_journey varchar(30),\nclassname varchar(30),\ndate_of_booking varchar(30),\ntotal_ticket_fare DECIMAL(30,2),\ntrain_number int\n);\nshow TABLES;\n",
     "options": {
         "tabSize": 4,
         "indentSize": 4,
@@ -15,11 +15,11 @@
             {
                 "inSelectionMode": false,
                 "selectionStart": {
-                    "lineNumber": 30,
+                    "lineNumber": 55,
                     "column": 1
                 },
                 "position": {
-                    "lineNumber": 30,
+                    "lineNumber": 55,
                     "column": 1
                 }
             }
@@ -27,10 +27,10 @@
         "viewState": {
             "scrollLeft": 0,
             "firstPosition": {
-                "lineNumber": 10,
+                "lineNumber": 44,
                 "column": 1
             },
-            "firstPositionDeltaTop": 222
+            "firstPositionDeltaTop": -22
         },
         "contributionsState": {
             "editor.contrib.folding": {},
@@ -646,7 +646,7 @@
                         "e9425f64-402b-4785-b93f-87c21e22d1b0"
                     ]
                 },
-                "currentHeight": 352,
+                "currentHeight": 36,
                 "currentSet": 1,
                 "statements": [
                     {
@@ -1002,7 +1002,284 @@
         {
             "state": {
                 "start": 30,
-                "end": 30,
+                "end": 42,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 4,
+                            "index": 0,
+                            "resultId": "56388bdf-fc56-40af-b923-0c2e16a530f4",
+                            "content": "OK, 0 records retrieved in 81.418ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 245
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 245,
+                            "length": 0
+                        },
+                        "contentStart": 244,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 43,
+                "end": 53,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 4,
+                            "index": 0,
+                            "resultId": "c1f01595-8fd9-426d-ce83-68898f9306e2",
+                            "content": "OK, 0 records retrieved in 10.535ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 242
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 54,
+                "end": 54,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "d8c9490c-f6ce-4c66-a4df-b4dcd0d4df0e"
+                    ]
+                },
+                "currentHeight": 352,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 12
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 12,
+                            "length": 0
+                        },
+                        "contentStart": 11,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "ae74b91a-15a9-4de4-e12a-201ec0083503",
+                    "resultId": "d8c9490c-f6ce-4c66-a4df-b4dcd0d4df0e",
+                    "rows": [
+                        {
+                            "0": "columns_priv"
+                        },
+                        {
+                            "0": "component"
+                        },
+                        {
+                            "0": "creditCard"
+                        },
+                        {
+                            "0": "Customers"
+                        },
+                        {
+                            "0": "db"
+                        },
+                        {
+                            "0": "default_roles"
+                        },
+                        {
+                            "0": "engine_cost"
+                        },
+                        {
+                            "0": "func"
+                        },
+                        {
+                            "0": "general_log"
+                        },
+                        {
+                            "0": "global_grants"
+                        },
+                        {
+                            "0": "gtid_executed"
+                        },
+                        {
+                            "0": "help_category"
+                        },
+                        {
+                            "0": "help_keyword"
+                        },
+                        {
+                            "0": "help_relation"
+                        },
+                        {
+                            "0": "help_topic"
+                        },
+                        {
+                            "0": "innodb_index_stats"
+                        },
+                        {
+                            "0": "innodb_table_stats"
+                        },
+                        {
+                            "0": "item"
+                        },
+                        {
+                            "0": "ndb_binlog_index"
+                        },
+                        {
+                            "0": "Orders"
+                        },
+                        {
+                            "0": "password_history"
+                        },
+                        {
+                            "0": "plugin"
+                        },
+                        {
+                            "0": "procs_priv"
+                        },
+                        {
+                            "0": "proxies_priv"
+                        },
+                        {
+                            "0": "replication_asynchronous_connection_failover"
+                        },
+                        {
+                            "0": "replication_asynchronous_connection_failover_managed"
+                        },
+                        {
+                            "0": "replication_group_configuration_version"
+                        },
+                        {
+                            "0": "replication_group_member_actions"
+                        },
+                        {
+                            "0": "role_edges"
+                        },
+                        {
+                            "0": "server_cost"
+                        },
+                        {
+                            "0": "servers"
+                        },
+                        {
+                            "0": "slave_master_info"
+                        },
+                        {
+                            "0": "slave_relay_log_info"
+                        },
+                        {
+                            "0": "slave_worker_info"
+                        },
+                        {
+                            "0": "slow_log"
+                        },
+                        {
+                            "0": "tables_priv"
+                        },
+                        {
+                            "0": "ticket"
+                        },
+                        {
+                            "0": "time_zone"
+                        },
+                        {
+                            "0": "time_zone_leap_second"
+                        },
+                        {
+                            "0": "time_zone_name"
+                        },
+                        {
+                            "0": "time_zone_transition"
+                        },
+                        {
+                            "0": "time_zone_transition_type"
+                        },
+                        {
+                            "0": "train"
+                        },
+                        {
+                            "0": "user"
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "Tables_in_mysql",
+                            "field": "0",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 44 records retrieved in 25.149ms"
+                    },
+                    "totalRowCount": 44,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "show TABLES",
+                    "updatable": false
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 55,
+                "end": 55,
                 "language": "mysql",
                 "currentSet": 1,
                 "statements": [
@@ -1013,7 +1290,7 @@
                             "length": 0
                         },
                         "contentStart": 0,
-                        "state": 3
+                        "state": 0
                     }
                 ]
             },
